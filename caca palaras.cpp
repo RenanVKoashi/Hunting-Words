@@ -8,16 +8,16 @@
         
         	for(i=0; i<4; i++){
             		system("cls");    // Comando Sleep tem a função de parar a execução pelo tempo determinado
-					printf("o---");
+			printf("o---");
             		Sleep(200);
             		system("cls");
-					printf("-o--");
+			printf("-o--");
             		Sleep(200);
             		system("cls");
-					printf("--o-");
+			printf("--o-");
             		Sleep(200);
             		system("cls");
-					printf("---0\n");
+			printf("---0\n");
             		Sleep(200);
             		system("cls");
             		printf("o---");
