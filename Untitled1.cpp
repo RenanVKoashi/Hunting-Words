@@ -4,11 +4,11 @@
     	#include <windows.h>
 	#define COL1 5
 
-    	void menuCarregamento(int i){
+    	void menuCarregamento(int i){	// Função que deve ser chamada sempre que a tela de carregamento for necessária
         
         	for(i=0; i<4; i++){
             		printf("o---");
-            		Sleep(200);
+            		Sleep(200); // Comando Sleep tem a função de parar a execução pelo tempo determinado
             		printf("-o--");
             		Sleep(200);
             		printf("--o-");
