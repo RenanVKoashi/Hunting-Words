@@ -1,8 +1,29 @@
-	#include<stdio.h>
-	#include<stdlib.h>
-	#include<locale.h>
-	#include<cstdlib>
-	#define COL1 5
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+#include <windows.h>
+#define COL1 5
+
+    	void menuCarregamento(int i){	// Fun√ß√£o que deve ser chamada sempre que a tela de carregamento for necess√°ria
+        
+        	for(i=0; i<4; i++){
+            		system("cls");    // Comando Sleep tem a fun√ß√£o de parar a execu√ß√£o pelo tempo determinado
+			printf("o---");
+            		Sleep(200);
+            		system("cls");
+			printf("-o--");
+            		Sleep(200);
+            		system("cls");
+			printf("--o-");
+            		Sleep(200);
+            		system("cls");
+			printf("---0\n");
+            		Sleep(200);
+            		system("cls");
+            		printf("o---");
+            		i++;
+        	}
+    	}
 
 	void Matriz1(char matriz[][COL1]){               //matriz sendo usada de exemplo para o programa
 		
@@ -25,28 +46,32 @@
 
 	int main(){
 		
-		setlocale(LC_ALL, "Portuguese");
+		setlocale(LC_ALL, "PORTUGUESE");
 		
-		int codigo, codigoNvl, comandoJogar;
+		int codigo, codigoNvl, comandoJogar, i;
 		char matrizFacil[5][5] = {{'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}};
 		
 		
 		do{
 			
-			printf("CA«A-PALAVRAS");
+			printf("CA√áA-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
 			printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
-			printf("N⁄MERO: ");
+			printf("---> ");
 			scanf("%d", &codigo);
+			
+			system("cls");
+			
+            menuCarregamento(i);
 			
 			system("cls");
 			
 			while(codigo < 1 || codigo > 3){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
-				printf("CA«A-PALAVRAS");
+				printf("CA√áA-PALAVRAS");
 				printf("\n===================================\n");
 				printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
-				printf("N⁄MERO: ");
+				printf("---> ");
 				scanf("%d", &codigo);	
 				
 				system("cls");	
@@ -55,21 +80,21 @@
 			
 			switch(codigo){                      
 				
-				case 1:                                      //tela para selecionar o nvl q vai ser jogado
-					printf("JOGAR - ESCOLHA UM NÕVEL");
+				case 1:                                  		    //tela para selecionar o nvl q vai ser jogado
+					printf("JOGAR - ESCOLHA UM N√çVEL");
 					printf("\n===================================\n");
-					printf("1. F¡CIL\n2. M…DIO\n3. DÕFICIL\n4. VOLTAR\n\n");
-					printf("N⁄MERO: ");
+					printf("1. F√ÅCIL\n2. M√âDIO\n3. D√çFICIL\n4. VOLTAR\n\n");
+					printf("---> ");
 					scanf("%d", &codigoNvl);
 					
 					system("cls");
 					
 					while(codigoNvl < 1 || codigoNvl > 4){             //caso n seja digitado um numero valido entre as opcoes
 						
-						printf("JOGAR - ESCOLHA UM NÕVEL");
+						printf("JOGAR - ESCOLHA UM N√çVEL");
 						printf("\n===================================\n");
-						printf("1. F¡CIL\n2. M…DIO\n3. DÕFICIL\n4. VOLTAR\n\n");
-						printf("N⁄MERO: ");
+						printf("1. F√ÅCIL\n2. M√âDIO\n3. D√çFICIL\n4. VOLTAR\n\n");
+						printf("---> ");
 						scanf("%d", &codigoNvl);
 					
 						system("cls");
@@ -108,7 +133,7 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("instruÁoes");                //sem instrucoes ainda
+					printf("instru√ßoes");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
