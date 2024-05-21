@@ -93,7 +93,7 @@
 							break;
 							
 						case 3:
-							Matriz1(matrizFacil);              // criar matriz de nvl medio
+							Matriz1(matrizFacil);              // criar matriz de nvl dificil
 							scanf("%d", &comandoJogar);           //sem codigo para jogar ainda
 							
 							system("cls");
