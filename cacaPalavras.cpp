@@ -54,36 +54,48 @@
 		
 		do{
 			
-			printf("CAÃ‡A-PALAVRAS");
+			printf("CAÇA-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
-			printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
+			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
 			printf("---> ");
 			scanf("%d", &codigo);
 			
 			system("cls");
 			
-            menuCarregamento(i);
+            if(codigo == 1 || codigo == 2 || codigo == 3 || codigo == 4){
+            	
+				menuCarregamento(i);
 			
-			system("cls");
+				system("cls");
+					
+			}
 			
-			while(codigo < 1 || codigo > 3){                        //caso n seja digitado um numero valido entre as opcoes do MENU
+			while(codigo < 1 || codigo > 4){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
-				printf("CAÃ‡A-PALAVRAS");
+				printf("CAÇA-PALAVRAS");
 				printf("\n===================================\n");
-				printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
+				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
 				printf("---> ");
 				scanf("%d", &codigo);	
 				
 				system("cls");	
+				
+				if(codigo == 1 || codigo == 2 || codigo == 3 || codigo == 4){
+            	
+					menuCarregamento(i);
+			
+					system("cls");
+					
+				}
 				
 			}
 			
 			switch(codigo){                      
 				
 				case 1:                                  		    //tela para selecionar o nvl q vai ser jogado
-					printf("JOGAR - ESCOLHA UM NÃVEL");
+					printf("JOGAR - ESCOLHA UM NÍVEL");
 					printf("\n===================================\n");
-					printf("1. FÃCIL\n2. MÃ‰DIO\n3. DÃFICIL\n4. VOLTAR\n\n");
+					printf("1. FÁCIL\n2. MÉDIO\n3. DÍFICIL\n4. VOLTAR\n\n");
 					printf("---> ");
 					scanf("%d", &codigoNvl);
 					
@@ -91,9 +103,9 @@
 					
 					while(codigoNvl < 1 || codigoNvl > 4){             //caso n seja digitado um numero valido entre as opcoes
 						
-						printf("JOGAR - ESCOLHA UM NÃVEL");
+						printf("JOGAR - ESCOLHA UM NÍVEL");
 						printf("\n===================================\n");
-						printf("1. FÃCIL\n2. MÃ‰DIO\n3. DÃFICIL\n4. VOLTAR\n\n");
+						printf("1. FÁCIL\n2. MÉDIO\n3. DÍFICIL\n4. VOLTAR\n\n");
 						printf("---> ");
 						scanf("%d", &codigoNvl);
 					
@@ -133,14 +145,22 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("instruÃ§oes");                //sem instrucoes ainda
+					printf("instruções");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
 					system("cls");
 					break;
 					
-				case 3:                      //fechar o programa
+				case 3:                      //leaderboard
+					printf("QUADRO DE LÍDERES");
+					printf("\n===================================\n");          //criar codigo para aparecer os nomes
+					
+					system("pause");
+					system("cls");
+					break;	
+				
+				case 4:                      //fechar o programa
 					printf("SAINDO...");       
 					
 					return 0;
