@@ -9,11 +9,13 @@ May/2024
 - Considerações?
 - Explicações sobre o programa*
 
-## Credits
-https://img.shields.io/badge/JoYoneyama-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2FJoYoneyama
+## Credits:
+[![Static Badge](https://img.shields.io/badge/JoYoneyama-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2FJoYoneyama)](https://github.com/JoYoneyama)
 
-https://img.shields.io/badge/Moscofian-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2FMoscofian
+[![Static Badge](https://img.shields.io/badge/Moscofian-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2FMoscofian)](https://github.com/Moscofian)
 
-https://img.shields.io/badge/Yukiosz-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2Fyukiosz
+[![Static Badge](https://img.shields.io/badge/Yukiosz-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2Fyukiosz)](https://github.com/yukiosz)
 
-https://img.shields.io/badge/RenanVKoashi-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2FRenanVKoashi
+[![Static Badge](https://img.shields.io/badge/RenanVKoashi-github?style=flat&logo=github&logoColor=white&label=github&labelColor=gray&color=blue&link=https%3A%2F%2Fgithub.com%2FRenanVKoashi)](https://github.com/RenanVKoashi)
+
+
