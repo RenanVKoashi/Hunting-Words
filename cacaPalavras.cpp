@@ -2,12 +2,12 @@
 #include<stdlib.h>
 #include<locale.h>
 #include <windows.h>
-#define COL1 5
+#define COL1 8
 
-    	void menuCarregamento(int i){	// Função que deve ser chamada sempre que a tela de carregamento for necessária
+    	void menuCarregamento(int i){	// FunÃ§Ã£o que deve ser chamada sempre que a tela de carregamento for necessÃ¡ria
         
         	for(i=0; i<4; i++){
-            		system("cls");    // Comando Sleep tem a função de parar a execução pelo tempo determinado
+            		system("cls");    // Comando Sleep tem a funÃ§Ã£o de parar a execuÃ§Ã£o pelo tempo determinado
 			printf("o---");
             		Sleep(200);
             		system("cls");
@@ -49,53 +49,71 @@
 		setlocale(LC_ALL, "PORTUGUESE");
 		
 		int codigo, codigoNvl, comandoJogar, i;
-		char matrizFacil[5][5] = {{'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}, {'a', 'b', 'c', 'd', 'e'}};
-		
-		
+		char matrizFacil[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
+                                  {'H', 'H', 'T', 'R', 'O', 'N', 'J', 'R'},
+                                  {'A', 'U', 'T', 'E', 'I', 'T', 'G', 'R'},
+                                  {'R', 'M', 'S', 'C', 'A', 'N', 'F', 'A'},
+                                  {'R', 'E', 'T', 'U', 'R', 'N', 'T', 'Y'},
+                                  {'I', 'R', 'R', 'R', 'I', 'S', 'O', 'F'},
+                                  {'R', 'A', 'O', 'L', 'H', 'U', 'F', 'L'},
+                                  {'C', 'F', 'O', 'N', 'I', 'R', 'T', 'E'}};
+
+        char matrizMedio[10][10] = {{'I', 'B', 'H', 'V', 'J', 'M', 'K', 'P', 'D', 'Y'},
+                                    {'D', 'F', 'J', 'L', 'C', 'C', 'J', 'X', 'O', 'M'},
+                                    {'A', 'I', 'F', 'U', 'A', 'M', 'E', 'L', 'S', 'E'},
+                                    {'A', 'N', 'Z', 'D', 'S', 'W', 'I', 'T', 'C', 'H'},
+                                    {'F', 'C', 'T', 'Y', 'E', 'U', 'F', 'G', 'K', 'X'},
+                                    {'D', 'L', 'U', 'H', 'Q', 'F', 'U', 'J', 'E', 'H'},
+                                    {'R', 'U', 'O', 'X', 'W', 'H', 'I', 'L', 'E', 'D'},
+                                    {'C', 'D', 'B', 'A', 'O', 'R', 'T', 'N', 'B', 'W'},
+                                    {'R', 'E', 'M', 'A', 'T', 'R', 'I', 'X', 'E', 'W'},
+                                    {'Z', 'V', 'F', 'R', 'I', 'U', 'Z', 'I', 'T', 'M'}};
+
+        char matrizDificil[12][12] = {{'O', 'S', 'E', 'F', 'O', 'A', 'N', 'P', 'T', 'L', 'O', 'T'},
+                                      {'P', 'R', 'S', 'L', 'O', 'A', 'S', 'T', 'S', 'G', 'F', 'B'},
+                                      {'L', 'Y', 'I', 'O', 'I', 'W', 'T', 'E', 'E', 'N', 'N', 'M'},
+                                      {'E', 'U', 'E', 'A', 'I', 'L', 'P', 'N', 'N', 'S', 'A', 'T'},
+                                      {'F', 'D', 'F', 'T', 'N', 'I', 'R', 'P', 'T', 'S', 'C', 'A'},
+                                      {'O', 'S', 'C', 'O', 'O', 'U', 'W', 'O', 'E', 'F', 'S', 'I'},
+                                      {'R', 'H', 'O', 'O', 'T', 'Y', 'E', 'W', 'Y', 'T', 'S', 'N'},
+                                      {'C', 'S', 'S', 'E', 'T', 'A', 'T', 'H', 'O', 'I', 'O', 'T'},
+                                      {'N', 'F', 'R', 'T', 'E', 'R', 'I', 'I', 'A', 'C', 'E', 'E'},
+                                      {'T', 'U', 'S', 'E', 'A', 'R', 'T', 'L', 'N', 'F', 'S', 'T'},
+                                      {'E', 'X', 'I', 'R', 'T', 'A', 'M', 'E', 'S', 'A', 'C', 'L'},
+                                      {'I', 'I', 'N', 'A', 'K', 'R', 'E', 'A', 'E', 'T', 'H', 'D'}};
+
 		do{
 			
-			printf("CA�A-PALAVRAS");
+			printf("CAÃ‡A-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
-			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
+			printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
 			printf("---> ");
 			scanf("%d", &codigo);
 			
 			system("cls");
 			
-            if(codigo == 1 || codigo == 2 || codigo == 3 || codigo == 4){
-            	
-				menuCarregamento(i);
+            menuCarregamento(i);
 			
-				system("cls");
-					
-			}
+			system("cls");
 			
-			while(codigo < 1 || codigo > 4){                        //caso n seja digitado um numero valido entre as opcoes do MENU
+			while(codigo < 1 || codigo > 3){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
-				printf("CA�A-PALAVRAS");
+				printf("CAÃ‡A-PALAVRAS");
 				printf("\n===================================\n");
-				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
+				printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
 				printf("---> ");
 				scanf("%d", &codigo);	
 				
 				system("cls");	
-				
-				if(codigo == 1 || codigo == 2 || codigo == 3 || codigo == 4){
-            	
-					menuCarregamento(i);
-			
-					system("cls");
-					
-				}
 				
 			}
 			
 			switch(codigo){                      
 				
 				case 1:                                  		    //tela para selecionar o nvl q vai ser jogado
-					printf("JOGAR - ESCOLHA UM N�VEL");
+					printf("JOGAR - ESCOLHA UM NÃVEL");
 					printf("\n===================================\n");
-					printf("1. F�CIL\n2. M�DIO\n3. D�FICIL\n4. VOLTAR\n\n");
+					printf("1. FÃCIL\n2. MÃ‰DIO\n3. DÃFICIL\n4. VOLTAR\n\n");
 					printf("---> ");
 					scanf("%d", &codigoNvl);
 					
@@ -103,9 +121,9 @@
 					
 					while(codigoNvl < 1 || codigoNvl > 4){             //caso n seja digitado um numero valido entre as opcoes
 						
-						printf("JOGAR - ESCOLHA UM N�VEL");
+						printf("JOGAR - ESCOLHA UM NÃVEL");
 						printf("\n===================================\n");
-						printf("1. F�CIL\n2. M�DIO\n3. D�FICIL\n4. VOLTAR\n\n");
+						printf("1. FÃCIL\n2. MÃ‰DIO\n3. DÃFICIL\n4. VOLTAR\n\n");
 						printf("---> ");
 						scanf("%d", &codigoNvl);
 					
@@ -123,14 +141,14 @@
 							break;
 							
 						case 2:
-							Matriz1(matrizFacil);           //criar matriz de nvl medio
+							Matriz1(matrizMedio);           //criar matriz de nvl medio
 							scanf("%d", &comandoJogar);         //sem codigo para jogar ainda
 							
 							system("cls");
 							break;
 							
 						case 3:
-							Matriz1(matrizFacil);              // criar matriz de nvl dificil
+							Matriz1(matrizDificil);              // criar matriz de nvl dificil
 							scanf("%d", &comandoJogar);           //sem codigo para jogar ainda
 							
 							system("cls");
@@ -145,22 +163,14 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("instru��es");                //sem instrucoes ainda
+					printf("instruÃ§oes");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
 					system("cls");
 					break;
 					
-				case 3:                      //leaderboard
-					printf("QUADRO DE L�DERES");
-					printf("\n===================================\n");          //criar codigo para aparecer os nomes
-					
-					system("pause");
-					system("cls");
-					break;	
-				
-				case 4:                      //fechar o programa
+				case 3:                      //fechar o programa
 					printf("SAINDO...");       
 					
 					return 0;
