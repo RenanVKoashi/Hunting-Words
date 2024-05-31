@@ -1,8 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<locale.h>
-#include <windows.h>
-#define COL1 8
+	#include<stdio.h>
+	#include<stdlib.h>
+	#include<locale.h>
+	#include <windows.h>
+	#define COL1 8
+	#define COL2 10
+	#define COL3 12
 
     	void menuCarregamento(int i){	// FunÃƒÂ§ÃƒÂ£o que deve ser chamada sempre que a tela de carregamento for necessÃƒÂ¡ria
         
@@ -25,13 +27,13 @@
         	}
     	}
 
-	void Matriz1(char matriz[][COL1]){               //matriz sendo usada de exemplo para o programa
+	void MatrizProg1(char matriz[][COL1]){               //matriz sendo usada de exemplo para o programa
 		
 		int i, j;
 		
-		for(i = 0; i < 5; i++){
+		for(i = 0; i < COL1; i++){
 			
-			for(j = 0; j < 5; j++){
+			for(j = 0; j < COL1; j++){
 				
 				printf("%c ", matriz[i][j]);
 				
@@ -42,13 +44,48 @@
 		}
 			
 	}
+	
+	void MatrizProg2(char matriz[][COL2]){
+		
+		int i, j;
+		
+		for(i = 0; i < COL2; i++){
+			
+			for(j = 0; j < COL2; j++){
+				
+				printf("%c ", matriz[i][j]);
+				
+			}
+			
+			printf("\n");
+			
+		}
+		
+	}
 
+	void MatrizProg3(char matriz[][COL3]){
+		
+		int i, j;
+		
+		for(i = 0; i < COL3; i++){
+			
+			for(j = 0; j < COL3; j++){
+				
+				printf("%c ", matriz[i][j]);
+				
+			}
+			
+			printf("\n");
+			
+		}
+		
+	}
 
 	int main(){
 		
 		setlocale(LC_ALL, "PORTUGUESE");
 		
-		int codigo, codigoNvl, comandoJogar, i;
+		int codigo, codigoTema, codigoContinuar, comandoJogar, i;
 		char matrizFacil[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
                                   {'H', 'H', 'T', 'R', 'O', 'N', 'J', 'R'},
                                   {'A', 'U', 'T', 'E', 'I', 'T', 'G', 'R'},
@@ -86,7 +123,7 @@
 			
 			printf("CAÃƒâ€¡A-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
-			printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
+			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
 			printf("---> ");
 			scanf("%d", &codigo);
 			
@@ -96,11 +133,11 @@
 			
 			system("cls");
 			
-			while(codigo < 1 || codigo > 3){                        //caso n seja digitado um numero valido entre as opcoes do MENU
+			while(codigo < 1 || codigo > 4){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
 				printf("CAÃƒâ€¡A-PALAVRAS");
 				printf("\n===================================\n");
-				printf("1. JOGAR\n2. COMO JOGAR\n3. SAIR\n\n");
+				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
 				printf("---> ");
 				scanf("%d", &codigo);	
 				
@@ -110,51 +147,116 @@
 			
 			switch(codigo){                      
 				
-				case 1:                                  		    //tela para selecionar o nvl q vai ser jogado
-					printf("JOGAR - ESCOLHA UM NÃƒÂVEL");
+				case 1:                                  		    //tela para selecionar o tema de jogo q vai ser jogado
+					printf("JOGAR - ESCOLHA UM TEMA");
 					printf("\n===================================\n");
-					printf("1. FÃƒÂCIL\n2. MÃƒâ€°DIO\n3. DÃƒÂFICIL\n4. VOLTAR\n\n");
+					printf("1. PROGRAMAÇÃO\n2. TEMA 2\n3. VOLTAR\n\n");
 					printf("---> ");
-					scanf("%d", &codigoNvl);
+					scanf("%d", &codigoTema);
 					
 					system("cls");
 					
-					while(codigoNvl < 1 || codigoNvl > 4){             //caso n seja digitado um numero valido entre as opcoes
+					while(codigoTema < 1 || codigoTema > 3){             //caso n seja digitado um numero valido entre as opcoes
 						
-						printf("JOGAR - ESCOLHA UM NÃƒÂVEL");
+						printf("JOGAR - ESCOLHA UM TEMA");
 						printf("\n===================================\n");
-						printf("1. FÃƒÂCIL\n2. MÃƒâ€°DIO\n3. DÃƒÂFICIL\n4. VOLTAR\n\n");
+						printf("1. PROGRAMAÇÃO\n2. TEMA 2\n4. VOLTAR\n\n");
 						printf("---> ");
-						scanf("%d", &codigoNvl);
+						scanf("%d", &codigoTema);
 					
 						system("cls");
 						
 					}
 					
-					switch(codigoNvl){                     
+					switch(codigoTema){                     
 						
 						case 1:
-							Matriz1(matrizFacil);
-							scanf("%d", &comandoJogar);  //sem codigo para jogar ainda
+							MatrizProg1(matrizFacil);
+							scanf("%d", &comandoJogar);
 							
 							system("cls");
+							
+							printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+							printf("\n===================================\n");
+							printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+							printf("---> ");
+							scanf("%d", &codigoContinuar);
+							
+							while(codigoContinuar < 1 || codigoContinuar > 2){
+								
+								system("cls");
+								
+								printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+								printf("\n===================================\n");
+								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+								printf("---> ");
+								scanf("%d", &codigoContinuar);
+								
+							}
+							
+							if(codigoContinuar == 1){
+								
+								system("cls");
+								
+								MatrizProg2(matrizMedio);
+								scanf("%d", &comandoJogar);
+							
+								system("cls");
+								
+								printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+								printf("\n===================================\n");
+								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+								printf("---> ");
+								scanf("%d", &codigoContinuar);
+								
+								while(codigoContinuar < 1 || codigoContinuar > 2){
+								
+									system("cls");
+								
+									printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+									printf("\n===================================\n");
+									printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+									printf("---> ");
+									scanf("%d", &codigoContinuar);
+								
+								}
+								
+								if(codigoContinuar == 1){
+									
+									system("cls");
+									
+									MatrizProg3(matrizDificil);
+									scanf("%d", &comandoJogar);
+							
+									system("cls");
+									
+									printf("VOCÊ FINALIZOU TODOS OS NÍVEIS!");
+									printf("\n===================================\n\n");
+									printf("PONTUAÇÃO: PONTOS\n\n");
+									
+									system("pause");
+									system("cls");
+									
+								}else{
+									
+									system("cls");
+									break;
+									
+								}
+								
+							}else{
+								
+								system("cls");
+								break;
+								
+							}
 							break;
 							
 						case 2:
-							Matriz1(matrizMedio);           //criar matriz de nvl medio
-							scanf("%d", &comandoJogar);         //sem codigo para jogar ainda
-							
-							system("cls");
+							//Tema 2
 							break;
 							
-						case 3:
-							Matriz1(matrizDificil);              // criar matriz de nvl dificil
-							scanf("%d", &comandoJogar);           //sem codigo para jogar ainda
-							
-							system("cls");
-							break;
-							
-						case 4:                           //botao de VOLTAR para o menu
+						case 3:                           //botao de VOLTAR para o menu
 							break;
 							
 					}
@@ -170,7 +272,15 @@
 					system("cls");
 					break;
 					
-				case 3:                      //fechar o programa
+				case 3:
+					printf("QUADRO DE LÍDERES");
+					printf("\n===================================\n");
+					
+					system("pause");
+					system("cls");
+					break;
+				
+				case 4:                      //fechar o programa
 					printf("SAINDO...");       
 					
 					return 0;
