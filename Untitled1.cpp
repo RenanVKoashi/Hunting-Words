@@ -56,7 +56,7 @@
 		//if(acerto = 1){
 			//score += formula;
 		//}else{
-			//printf("Que pen/a, seu multiplicador voltou a 0!");
+			//printf("Que pena, seu multiplicador voltou a 0!");
 			//Sleep(100);
 			//printf("¯\_(ツ)_/¯");
 			//Sleep(200);
