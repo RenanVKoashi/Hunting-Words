@@ -31,19 +31,13 @@
 		
 		int i, j;
 
-        printf("0  1  2  3  4  5  6  7 ");
+        	printf("0  1  2  3  4  5  6  7 ");
+		
 		for(i = 0; i < COL1; i++){
 
 			for(j = 0; j < COL1; j++){
-                if(j==0){
-                    printf(i);
-                }
 
 				printf("%c ", matriz[i][j]);
-
-                if(j==7){
-                    printf("\n");
-                }
 				
 			}
 			
@@ -56,18 +50,15 @@
 	void MatrizProg2(char matriz[][COL2]){
 		
 		int i, j;
-        printf("0  1  2  3  4  5  6  7  8  9");
+		
+       		printf("0  1  2  3  4  5  6  7  8  9");
+		
 		for(i = 0; i < COL2; i++){
 
 			for(j = 0; j < COL2; j++){
-                if(j==0){
-                    printf(i);
-                }
+   
 				printf("%c ", matriz[i][j]);
 
-                if(j==9){
-                    printf("\n");
-                }
 			}
 			
 			printf("\n");
@@ -79,18 +70,14 @@
 	void MatrizProg3(char matriz[][COL3]){
 		
 		int i, j;
-        printf("0  1  2  3  4  5  6  7  8  9   10   11");
+		
+       		printf("0  1  2  3  4  5  6  7  8  9   10   11");
+		
 		for(i = 0; i < COL3; i++){
 			
 			for(j = 0; j < COL3; j++){
-				if(j==0){
-                    printf(i);
-                }
+	
 				printf("%c ", matriz[i][j]);
-
-                if(j==11){
-                    printf("\n");
-                }
 				
 			}
 			
