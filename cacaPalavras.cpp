@@ -6,10 +6,10 @@
 	#define COL2 10
 	#define COL3 12
 
-    	void menuCarregamento(int i){	// FunÃ§Ã£o que deve ser chamada sempre que a tela de carregamento for necessÃ¡ria
+    	void menuCarregamento(int i){	// FunÃƒÂ§ÃƒÂ£o que deve ser chamada sempre que a tela de carregamento for necessÃƒÂ¡ria
         
         	for(i=0; i<4; i++){
-            		system("cls");    // Comando Sleep tem a funÃ§Ã£o de parar a execuÃ§Ã£o pelo tempo determinado
+            		system("cls");    // Comando Sleep tem a funÃƒÂ§ÃƒÂ£o de parar a execuÃƒÂ§ÃƒÂ£o pelo tempo determinado
 			printf("o---");
             		Sleep(200);
             		system("cls");
@@ -34,7 +34,7 @@
 		for(i = 0; i < COL1; i++){
 			
 			for(j = 0; j < COL1; j++){
-				
+        
 				printf("%c ", matriz[i][j]);
 				
 			}
@@ -86,7 +86,9 @@
 		setlocale(LC_ALL, "PORTUGUESE");
 		
 		int codigo, codigoTema, codigoContinuar, comandoJogar, i;
+
 		char matrizFacil[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
+
                                   {'H', 'H', 'T', 'R', 'O', 'N', 'J', 'R'},
                                   {'A', 'U', 'T', 'E', 'I', 'T', 'G', 'R'},
                                   {'R', 'M', 'S', 'C', 'A', 'N', 'F', 'A'},
@@ -95,7 +97,7 @@
                                   {'R', 'A', 'O', 'L', 'H', 'U', 'F', 'L'},
                                   {'C', 'F', 'O', 'N', 'I', 'R', 'T', 'E'}};
 
-        char matrizMedio[10][10] = {{'I', 'B', 'H', 'V', 'J', 'M', 'K', 'P', 'D', 'Y'},
+        char matrizMedioC[10][10] = {{'I', 'B', 'H', 'V', 'J', 'M', 'K', 'P', 'D', 'Y'},
                                     {'D', 'F', 'J', 'L', 'C', 'C', 'J', 'X', 'O', 'M'},
                                     {'A', 'I', 'F', 'U', 'A', 'M', 'E', 'L', 'S', 'E'},
                                     {'A', 'N', 'Z', 'D', 'S', 'W', 'I', 'T', 'C', 'H'},
@@ -106,7 +108,7 @@
                                     {'R', 'E', 'M', 'A', 'T', 'R', 'I', 'X', 'E', 'W'},
                                     {'Z', 'V', 'F', 'R', 'I', 'U', 'Z', 'I', 'T', 'M'}};
 
-        char matrizDificil[12][12] = {{'O', 'S', 'E', 'F', 'O', 'A', 'N', 'P', 'T', 'L', 'O', 'T'},
+        char matrizDificilC[12][12] = {{'O', 'S', 'E', 'F', 'O', 'A', 'N', 'P', 'T', 'L', 'O', 'T'},
                                       {'P', 'R', 'S', 'L', 'O', 'A', 'S', 'T', 'S', 'G', 'F', 'B'},
                                       {'L', 'Y', 'I', 'O', 'I', 'W', 'T', 'E', 'E', 'N', 'N', 'M'},
                                       {'E', 'U', 'E', 'A', 'I', 'L', 'P', 'N', 'N', 'S', 'A', 'T'},
@@ -119,11 +121,46 @@
                                       {'E', 'X', 'I', 'R', 'T', 'A', 'M', 'E', 'S', 'A', 'C', 'L'},
                                       {'I', 'I', 'N', 'A', 'K', 'R', 'E', 'A', 'E', 'T', 'H', 'D'}};
 
-		do{
+        char matrizFacilEsportes[8][8] = { {'J', 'I', 'P', 'T', 'Q', 'V', 'Q', 'A'},
+                                          {'O', 'B', 'J', 'I', 'O', 'G', 'O', 'L'},
+                                          {'G', 'F', 'H', 'M', 'L', 'K', 'B', 'Q'},
+                                          {'A', 'B', 'T', 'E', 'N', 'I', 'S', 'U'},
+                                          {'D', 'O', 'O', 'U', 'E', 'E', 'T', 'A'},
+                                          {'O', 'Y', 'D', 'L', 'W', 'Z', 'A', 'D'},
+                                          {'R', 'X', 'O', 'L', 'A', 'P', 'B', 'R'},
+                                          {'K', 'V', 'T', 'A', 'C', 'A', 'V', 'A'}};
+
+        char matrizMedioEsportes[10][10] = { {'C', 'I', 'C', 'L', 'I', 'S', 'M', 'O', 'X', 'A'},
+                                            {'L', 'O', 'U', 'Q', 'W', 'U', 'I', 'D', 'X', 'T'},
+                                            {'C', 'Q', 'M', 'E', 'Y', 'R', 'N', 'L', 'D', 'L'},
+                                            {'T', 'O', 'S', 'P', 'D', 'F', 'O', 'T', 'N', 'E'},
+                                            {'R', 'V', 'R', 'A', 'E', 'B', 'G', 'H', 'A', 'T'},
+                                            {'E', 'M', 'J', 'R', 'E', 'T', 'R', 'S', 'T', 'I'},
+                                            {'I', 'B', 'A', 'T', 'I', 'H', 'I', 'L', 'A', 'S'},
+                                            {'N', 'Z', 'U', 'I', 'G', 'D', 'I', 'C', 'C', 'M'},
+                                            {'O', 'F', 'X', 'D', 'H', 'R', 'A', 'X', 'A', 'O'},
+                                            {'M', 'A', 'R', 'A', 'T', 'O', 'N', 'A', 'O', 'O'}};
+
+        char matrizDificilEsportes[12][12] = { {'T', 'V', 'S', 'I', 'V', 'E', 'N', 'C', 'E', 'D', 'O', 'R'},
+                                              {'H', 'S', 'W', 'R', 'E', 'T', 'A', 'K', 'S', 'C', 'U', 'H'},
+                                              {'O', 'O', 'P', 'L', 'E', 'H', 'F', 'U', 'T', 'S', 'A', 'L'},
+                                              {'A', 'A', 'L', 'O', 'B', 'E', 'D', 'N', 'A', 'H', 'E', 'E'},
+                                              {'C', 'D', 'D', 'I', 'C', 'I', 'E', 'E', 'L', 'S', 'T', 'T'},
+                                              {'A', 'I', 'W', 'D', 'M', 'N', 'O', 'A', 'K', 'A', 'E', 'A'},
+                                              {'N', 'C', 'I', 'N', 'H', 'P', 'D', 'H', 'L', 'S', 'U', 'E'},
+                                              {'I', 'R', 'E', 'R', 'O', 'E', 'I', 'T', 'T', 'S', 'Q', 'P'},
+                                              {'T', 'O', 'H', 'L', 'M', 'E', 'M', 'A', 'R', 'E', 'S', 'I'},
+                                              {'A', 'T', 'A', 'E', 'K', 'W', 'O', 'N', 'D', 'O', 'A', 'U'},
+                                              {'P', 'G', 'B', 'H', 'A', 'O', 'T', 'S', 'N', 'A', 'B', 'Q'},
+                                              {'O', 'O', 'Y', 'H', 'E', 'C', 'A', 'M', 'P', 'O', 'S', 'E'}};
+
+
+        do{
 			
-			printf("CAÃ‡A-PALAVRAS");
+			printf("CAÃƒâ€¡A-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
-			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
+
+			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
 			printf("---> ");
 			scanf("%d", &codigo);
 			
@@ -135,9 +172,9 @@
 			
 			while(codigo < 1 || codigo > 4){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
-				printf("CAÃ‡A-PALAVRAS");
+				printf("CAÃƒâ€¡A-PALAVRAS");
 				printf("\n===================================\n");
-				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
+				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
 				printf("---> ");
 				scanf("%d", &codigo);	
 				
@@ -150,7 +187,7 @@
 				case 1:                                  		    //tela para selecionar o tema de jogo q vai ser jogado
 					printf("JOGAR - ESCOLHA UM TEMA");
 					printf("\n===================================\n");
-					printf("1. PROGRAMA��O\n2. TEMA 2\n3. VOLTAR\n\n");
+					printf("1. PROGRAMAÇÃO\n2. ESPORTES\n3. VOLTAR\n\n");
 					printf("---> ");
 					scanf("%d", &codigoTema);
 					
@@ -160,7 +197,7 @@
 						
 						printf("JOGAR - ESCOLHA UM TEMA");
 						printf("\n===================================\n");
-						printf("1. PROGRAMA��O\n2. TEMA 2\n4. VOLTAR\n\n");
+						printf("1. PROGRAMAÇÃO\n2. ESPORTES\n4. VOLTAR\n\n");
 						printf("---> ");
 						scanf("%d", &codigoTema);
 					
@@ -176,9 +213,9 @@
 							
 							system("cls");
 							
-							printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+							printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
 							printf("\n===================================\n");
-							printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+							printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 							printf("---> ");
 							scanf("%d", &codigoContinuar);
 							
@@ -186,9 +223,9 @@
 								
 								system("cls");
 								
-								printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+								printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
 								printf("\n===================================\n");
-								printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 								printf("---> ");
 								scanf("%d", &codigoContinuar);
 								
@@ -203,9 +240,9 @@
 							
 								system("cls");
 								
-								printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+								printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
 								printf("\n===================================\n");
-								printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 								printf("---> ");
 								scanf("%d", &codigoContinuar);
 								
@@ -213,9 +250,9 @@
 								
 									system("cls");
 								
-									printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+									printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
 									printf("\n===================================\n");
-									printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+									printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 									printf("---> ");
 									scanf("%d", &codigoContinuar);
 								
@@ -230,9 +267,9 @@
 							
 									system("cls");
 									
-									printf("VOC� FINALIZOU TODOS OS N�VEIS!");
+									printf("VOCÊ FINALIZOU TODOS OS NÍVEIS!");
 									printf("\n===================================\n\n");
-									printf("PONTUA��O: PONTOS\n\n");
+									printf("PONTUAÇÃO: PONTOS\n\n");
 									
 									system("pause");
 									system("cls");
@@ -253,9 +290,87 @@
 							break;
 							
 						case 2:
-							//Tema 2
+                            MatrizProg1(matrizFacilEsportes);
+                            scanf("%d", &comandoJogar);
+
+                            system("cls");
+
+                            printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                            printf("\n===================================\n");
+                            printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                            printf("---> ");
+                            scanf("%d", &codigoContinuar);
+
+                            while(codigoContinuar < 1 || codigoContinuar > 2){
+
+                                system("cls");
+
+                                printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                                printf("\n===================================\n");
+                                printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                                printf("---> ");
+                                scanf("%d", &codigoContinuar);
+
+                            }
+
+                            if(codigoContinuar == 1){
+
+                                system("cls");
+
+                                MatrizProg2(matrizMedioEsportes);
+                                scanf("%d", &comandoJogar);
+
+                                system("cls");
+
+                                printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                                printf("\n===================================\n");
+                                printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                                printf("---> ");
+                                scanf("%d", &codigoContinuar);
+
+                                while(codigoContinuar < 1 || codigoContinuar > 2){
+
+                                    system("cls");
+
+                                    printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                                    printf("\n===================================\n");
+                                    printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                                    printf("---> ");
+                                    scanf("%d", &codigoContinuar);
+
+                                }
+
+                                if(codigoContinuar == 1){
+
+                                    system("cls");
+
+                                    MatrizProg3(matrizDificilEsportes);
+                                    scanf("%d", &comandoJogar);
+
+                                    system("cls");
+
+                                    printf("VOCï¿½ FINALIZOU TODOS OS Nï¿½VEIS!");
+                                    printf("\n===================================\n\n");
+                                    printf("PONTUAï¿½ï¿½O: PONTOS\n\n");
+
+                                    system("pause");
+                                    system("cls");
+
+                                }else{
+
+                                    system("cls");
+                                    break;
+
+                                }
+
+                            }else{
+
+                                system("cls");
+                                break;
+
+                            }
 							break;
-							
+						
 						case 3:                           //botao de VOLTAR para o menu
 							break;
 							
@@ -265,7 +380,7 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("instruÃ§oes");                //sem instrucoes ainda
+					printf("instruÃƒÂ§oes");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
@@ -273,7 +388,7 @@
 					break;
 					
 				case 3:
-					printf("QUADRO DE L�DERES");
+					printf("QUADRO DE LÍDERES");
 					printf("\n===================================\n");
 					
 					system("pause");
