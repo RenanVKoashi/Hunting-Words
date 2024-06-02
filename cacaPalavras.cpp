@@ -2,36 +2,124 @@
 	#include<stdlib.h>
 	#include<locale.h>
 	#include <windows.h>
+	#define TAM 15
 	#define COL1 8
 	#define COL2 10
 	#define COL3 12
 
-    	void menuCarregamento(int i){	// FunÃƒÂ§ÃƒÂ£o que deve ser chamada sempre que a tela de carregamento for necessÃƒÂ¡ria
-        
-        	for(i=0; i<4; i++){
-            		system("cls");    // Comando Sleep tem a funÃƒÂ§ÃƒÂ£o de parar a execuÃƒÂ§ÃƒÂ£o pelo tempo determinado
-			printf("o---");
-            		Sleep(200);
-            		system("cls");
-			printf("-o--");
-            		Sleep(200);
-            		system("cls");
-			printf("--o-");
-            		Sleep(200);
-            		system("cls");
-			printf("---0\n");
-            		Sleep(200);
-            		system("cls");
-            		printf("o---");
-            		i++;
-        	}
-    	}
+	int pontos[10] = {0}, size = 0;                 //variavel universal no codigo(pode ter o valor alterado pelas funcoes)
+	char *lideres[] = {"Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player"};//este pode ser considerado um vetor de strings, e n caracteres. 
+	int numeroVetor = sizeof(lideres) / sizeof(lideres[0]);      //quantidade de strings dentro do vetor lideres[]
 
-	void MatrizProg1(char matriz[][COL1]){               //matriz sendo usada de exemplo para o programa
+    void menuCarregamento(int i){	// Fun��o que deve ser chamada sempre que a tela de carregamento for necess�ria
+        
+        for(i=0; i<4; i++){
+        	
+            system("cls");    // Comando Sleep tem a fun��o de parar a execu��o pelo tempo determinado
+            
+			printf("o---");
+            Sleep(200);
+            
+            system("cls");
+            		
+			printf("-o--");
+           	Sleep(200);
+            		
+            system("cls");
+            		
+			printf("--o-");
+           	Sleep(200);
+            		
+           	system("cls");
+            		
+			printf("---0\n");
+            Sleep(200);
+            		
+            system("cls");
+            		
+           	printf("o---");
+            		
+           	i++;
+           	
+        	}
+    }
+    	
+    void limparBufferEntrada(){                //limpar a entrada para o fgets
+    	
+    	while(getchar() != '\n');
+    	
+	}
+	
+	void Leaderboard(char nome[TAM], int pontuacao){
+		
+		char *auxNome, *novoNome;
+		
+		novoNome = strdup(nome);   //aloca memoria e copia nome
+		
+		if(size < 10){
+			
+			lideres[size] = novoNome;				//realiza o codigo assim ate obter 10 entradas
+			pontos[size] = pontuacao;
+			
+			size++;	
+			
+		}else{
+			
+			int menorPontuacao = 0;
+				
+			for(int j = 1; j < 10; j++){
+					
+				if(pontos[j] < pontos[menorPontuacao]){                     //encontra a posicao com o menor numero
+						
+					menorPontuacao = j;
+						
+				}
+			}
+			
+			if(pontuacao > pontos[menorPontuacao]){
+					
+				free(lideres[menorPontuacao]);    
+					
+				pontos[menorPontuacao] = pontuacao;                       //substitui a nova pontuacao e nome
+				lideres[menorPontuacao] = novoNome;
+					
+			}else{
+				
+				free(novoNome);     //se n for usada a variavel e libarada
+				
+			}	
+		}
+		
+		for(int a = 0; a < 10; a++){
+			
+			for(int b = a + 1; b < 10; b++){
+				
+				if(pontos[b] > pontos[a]){
+						
+					int aux = pontos[a];
+					pontos[a] = pontos[b];            //algoritmo de ordenacao 
+					pontos[b] = aux;
+						
+					auxNome = lideres[a];
+					lideres[a] = lideres[b];
+					lideres[b] = auxNome;
+						
+				}				
+			}
+			
+		}
+			
+	}
+
+	void Matriz1(char matriz[][COL1]){               //matriz sendo usada de exemplo para o programa
 		
 		int i, j;
 		
+		printf("   0 1 2 3 4 5 6 7\n\n");
+		
 		for(i = 0; i < COL1; i++){
+			
+			printf("%d  ", i);
 			
 			for(j = 0; j < COL1; j++){
         
@@ -45,11 +133,15 @@
 			
 	}
 	
-	void MatrizProg2(char matriz[][COL2]){
+	void Matriz2(char matriz[][COL2]){
 		
 		int i, j;
 		
+		printf("   0 1 2 3 4 5 6 7 8 9\n\n");
+		
 		for(i = 0; i < COL2; i++){
+			
+			printf("%d  ", i);
 			
 			for(j = 0; j < COL2; j++){
 				
@@ -63,11 +155,17 @@
 		
 	}
 
-	void MatrizProg3(char matriz[][COL3]){
+	void Matriz3(char matriz[][COL3]){
 		
 		int i, j;
 		
+		printf("    0 1 2 3 4 5 6 7 8 9 10 11\n\n");
+		
 		for(i = 0; i < COL3; i++){
+			
+			printf("%d  ", i);
+			
+			if(i < 10) printf(" ");
 			
 			for(j = 0; j < COL3; j++){
 				
@@ -85,9 +183,10 @@
 		
 		setlocale(LC_ALL, "PORTUGUESE");
 		
-		int codigo, codigoTema, codigoContinuar, comandoJogar, i;
+		int codigo, codigoTema, codigoContinuar, comandoJogar, i, pontuacao = 0, iteracao = 0;
+		char nome[TAM];
 
-		char matrizFacil[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
+		char matrizFacilC[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
 
                                   {'H', 'H', 'T', 'R', 'O', 'N', 'J', 'R'},
                                   {'A', 'U', 'T', 'E', 'I', 'T', 'G', 'R'},
@@ -154,13 +253,18 @@
                                               {'P', 'G', 'B', 'H', 'A', 'O', 'T', 'S', 'N', 'A', 'B', 'Q'},
                                               {'O', 'O', 'Y', 'H', 'E', 'C', 'A', 'M', 'P', 'O', 'S', 'E'}};
 
+		for(int z = 0; z < numeroVetor; z++){
+			
+			lideres[z] = strdup("Player");          //evitar conflitos na troca de variaveis
+			
+		}
 
         do{
 			
-			printf("CAÃƒâ€¡A-PALAVRAS");
+			printf("CA�A-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
 
-			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
+			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
 			printf("---> ");
 			scanf("%d", &codigo);
 			
@@ -172,9 +276,9 @@
 			
 			while(codigo < 1 || codigo > 4){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
-				printf("CAÃƒâ€¡A-PALAVRAS");
+				printf("CA�A-PALAVRAS");
 				printf("\n===================================\n");
-				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÍDERES\n4. SAIR\n\n");
+				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
 				printf("---> ");
 				scanf("%d", &codigo);	
 				
@@ -184,10 +288,20 @@
 			
 			switch(codigo){                      
 				
-				case 1:                                  		    //tela para selecionar o tema de jogo q vai ser jogado
-					printf("JOGAR - ESCOLHA UM TEMA");
+				case 1:   
+					printf("JOGAR - DIGITE SEU NOME");  								//tela para inserir nome
 					printf("\n===================================\n");
-					printf("1. PROGRAMAÇÃO\n2. ESPORTES\n3. VOLTAR\n\n");
+					printf("---> ");
+					limparBufferEntrada();                                //fgets apos um scanf causa problema na entrada do fgets
+					fgets(nome, sizeof(nome), stdin);
+					
+					if(nome[strlen(nome) - 1] == '\n') nome[strlen(nome) - 1] = '\0';      //tira o \n da string e mantem o \0
+					
+					system("cls");
+					                             		    
+					printf("JOGAR - ESCOLHA UM TEMA");											//tela para selecionar o tema de jogo q vai ser jogado
+					printf("\n===================================\n");
+					printf("1. PROGRAMA��O\n2. ESPORTES\n3. VOLTAR\n\n");
 					printf("---> ");
 					scanf("%d", &codigoTema);
 					
@@ -197,7 +311,7 @@
 						
 						printf("JOGAR - ESCOLHA UM TEMA");
 						printf("\n===================================\n");
-						printf("1. PROGRAMAÇÃO\n2. ESPORTES\n4. VOLTAR\n\n");
+						printf("1. PROGRAMA��O\n2. ESPORTES\n3. VOLTAR\n\n");
 						printf("---> ");
 						scanf("%d", &codigoTema);
 					
@@ -208,14 +322,14 @@
 					switch(codigoTema){                     
 						
 						case 1:
-							MatrizProg1(matrizFacil);
+							Matriz1(matrizFacilC);
 							scanf("%d", &comandoJogar);
 							
 							system("cls");
 							
-							printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+							printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
 							printf("\n===================================\n");
-							printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+							printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
 							printf("---> ");
 							scanf("%d", &codigoContinuar);
 							
@@ -223,9 +337,9 @@
 								
 								system("cls");
 								
-								printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+								printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
 								printf("\n===================================\n");
-								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+								printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
 								printf("---> ");
 								scanf("%d", &codigoContinuar);
 								
@@ -235,14 +349,14 @@
 								
 								system("cls");
 								
-								MatrizProg2(matrizMedio);
+								Matriz2(matrizMedioC);
 								scanf("%d", &comandoJogar);
 							
 								system("cls");
 								
-								printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+								printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
 								printf("\n===================================\n");
-								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+								printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
 								printf("---> ");
 								scanf("%d", &codigoContinuar);
 								
@@ -250,31 +364,35 @@
 								
 									system("cls");
 								
-									printf("VOCÊ ENCONTROU TODAS AS PALAVRAS!");
+									printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
 									printf("\n===================================\n");
-									printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
+									printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
 									printf("---> ");
 									scanf("%d", &codigoContinuar);
 								
 								}
 								
 								if(codigoContinuar == 1){
-									
+								
 									system("cls");
 									
-									MatrizProg3(matrizDificil);
+									Matriz3(matrizDificilC);
 									scanf("%d", &comandoJogar);
 							
 									system("cls");
 									
-									printf("VOCÊ FINALIZOU TODOS OS NÍVEIS!");
+									printf("VOC� FINALIZOU TODOS OS N�VEIS!");
 									printf("\n===================================\n\n");
-									printf("PONTUAÇÃO: PONTOS\n\n");
+									printf("PONTUA��O: PONTOS\n\n");
+									
+									Leaderboard(nome, pontuacao);
 									
 									system("pause");
 									system("cls");
 									
 								}else{
+									
+									Leaderboard(nome, pontuacao);
 									
 									system("cls");
 									break;
@@ -283,6 +401,8 @@
 								
 							}else{
 								
+								Leaderboard(nome, pontuacao);
+								
 								system("cls");
 								break;
 								
@@ -290,14 +410,14 @@
 							break;
 							
 						case 2:
-                            MatrizProg1(matrizFacilEsportes);
+                            Matriz1(matrizFacilEsportes);
                             scanf("%d", &comandoJogar);
 
                             system("cls");
 
-                            printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                            printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
                             printf("\n===================================\n");
-                            printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                            printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
                             printf("---> ");
                             scanf("%d", &codigoContinuar);
 
@@ -305,9 +425,9 @@
 
                                 system("cls");
 
-                                printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                                printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
                                 printf("\n===================================\n");
-                                printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                                printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
                                 printf("---> ");
                                 scanf("%d", &codigoContinuar);
 
@@ -317,14 +437,14 @@
 
                                 system("cls");
 
-                                MatrizProg2(matrizMedioEsportes);
+                                Matriz2(matrizMedioEsportes);
                                 scanf("%d", &comandoJogar);
 
                                 system("cls");
 
-                                printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                                printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
                                 printf("\n===================================\n");
-                                printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                                printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
                                 printf("---> ");
                                 scanf("%d", &codigoContinuar);
 
@@ -332,9 +452,9 @@
 
                                     system("cls");
 
-                                    printf("VOCï¿½ ENCONTROU TODAS AS PALAVRAS!");
+                                    printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
                                     printf("\n===================================\n");
-                                    printf("PRï¿½XIMO Nï¿½VEL?\n1. SIM\n2. Nï¿½O\n\n");
+                                    printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
                                     printf("---> ");
                                     scanf("%d", &codigoContinuar);
 
@@ -344,19 +464,23 @@
 
                                     system("cls");
 
-                                    MatrizProg3(matrizDificilEsportes);
+                                    Matriz3(matrizDificilEsportes);
                                     scanf("%d", &comandoJogar);
 
                                     system("cls");
 
-                                    printf("VOCï¿½ FINALIZOU TODOS OS Nï¿½VEIS!");
+                                    printf("VOC� FINALIZOU TODOS OS N�VEIS!");
                                     printf("\n===================================\n\n");
-                                    printf("PONTUAï¿½ï¿½O: PONTOS\n\n");
+                                    printf("PONTUA��O: PONTOS\n\n");
+                                    
+                                    Leaderboard(nome, pontuacao);
 
                                     system("pause");
                                     system("cls");
 
                                 }else{
+                                	
+                                	Leaderboard(nome, pontuacao);
 
                                     system("cls");
                                     break;
@@ -364,6 +488,8 @@
                                 }
 
                             }else{
+                            	
+                            	Leaderboard(nome, pontuacao);
 
                                 system("cls");
                                 break;
@@ -372,6 +498,7 @@
 							break;
 						
 						case 3:                           //botao de VOLTAR para o menu
+							Leaderboard(nome, pontuacao);
 							break;
 							
 					}
@@ -380,7 +507,7 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("instruÃƒÂ§oes");                //sem instrucoes ainda
+					printf("instrucoes");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
@@ -388,8 +515,16 @@
 					break;
 					
 				case 3:
-					printf("QUADRO DE LÍDERES");
+					printf("QUADRO DE L�DERES");
 					printf("\n===================================\n");
+					
+					for(int l = 0; l < numeroVetor; l++){
+						
+						printf("%d - %s  %dpts\n", l + 1, lideres[l], pontos[l]);
+						
+					}
+					
+					printf("\n");
 					
 					system("pause");
 					system("cls");
