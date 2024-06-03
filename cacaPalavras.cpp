@@ -1,8 +1,8 @@
 	#include<stdio.h>
 	#include<stdlib.h>
 	#include<locale.h>
-	#include <windows.h>
-	#define TAM 15
+	#include<windows.h>
+	#define TAM 8
 	#define COL1 8
 	#define COL2 10
 	#define COL3 12
@@ -18,22 +18,22 @@
             system("cls");    // Comando Sleep tem a função de parar a execução pelo tempo determinado
             
 			printf("o---");
-            Sleep(200);
+            Sleep(100);
             
             system("cls");
             		
 			printf("-o--");
-           	Sleep(200);
+           	Sleep(100);
             		
             system("cls");
             		
 			printf("--o-");
-           	Sleep(200);
+           	Sleep(100);
             		
            	system("cls");
             		
-			printf("---0\n");
-            Sleep(200);
+			printf("---o\n");
+            Sleep(100);
             		
             system("cls");
             		
@@ -322,6 +322,7 @@
 					switch(codigoTema){                     
 						
 						case 1:
+							pontuacao++;
 							Matriz1(matrizFacilC);
 							scanf("%d", &comandoJogar);
 							
