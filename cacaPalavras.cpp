@@ -8,7 +8,7 @@
 	#define COL3 12
 
 	int pontos[10] = {0}, size = 0;                 //variavel universal no codigo(pode ter o valor alterado pelas funcoes)
-	char *lideres[] = {"Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player"};//este pode ser considerado um vetor de strings, e n caracteres. 
+	char *lideres[] = {"Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player"}; //este pode ser considerado um vetor de strings, e n caracteres. 
 	int numeroVetor = sizeof(lideres) / sizeof(lideres[0]);      //quantidade de strings dentro do vetor lideres[]
 
     void menuCarregamento(int i){	// Função que deve ser chamada sempre que a tela de carregamento for necessária
@@ -111,11 +111,11 @@
 			
 	}
 
-	void matriz1(char matriz[][COL1]){               //matriz sendo usada de exemplo para o programa
+	void matriz1(char matriz[][COL1]){               //função para escrever a matriz
 		
 		int i, j;
 		
-		printf("   0 1 2 3 4 5 6 7  X\n\n");
+		printf("   0 1 2 3 4 5 6 7*X\n\n");
 		
 		for(i = 0; i < COL1; i++){
 			
@@ -130,7 +130,7 @@
 			printf("\n");
 			
 		}
-		printf("\nY");
+		printf("*\nY");
 			
 	}
 	
@@ -138,7 +138,7 @@
 		
 		int i, j;
 		
-		printf("   0 1 2 3 4 5 6 7 8 9  X\n\n");
+		printf("   0 1 2 3 4 5 6 7 8 9*X\n\n");
 		
 		for(i = 0; i < COL2; i++){
 			
@@ -153,7 +153,7 @@
 			printf("\n");
 			
 		}
-		printf("\nY");
+		printf("*\nY");
 		
 	}
 
@@ -161,7 +161,7 @@
 		
 		int i, j;
 		
-		printf("    0 1 2 3 4 5 6 7 8 9 10 11  X\n\n");
+		printf("    0 1 2 3 4 5 6 7 8 9 10 11*X\n\n");
 		
 		for(i = 0; i < COL3; i++){
 			
@@ -178,7 +178,7 @@
 			printf("\n");
 			
 		}
-		printf("\nY");
+		printf("*\nY");
 		
 	}
 
@@ -188,11 +188,14 @@
 		
 		int codigo, codigoTema, codigoContinuar, comandoJogar, i, pontuacao = 0, iteracao = 0;
 		int x1=0, y1=0, x2=0, y2=0, somaVetorPontos=0, pontuacaoVetorFacilC[8], pontuacaoVetorMedioC[10], pontuacaoVetorDificilC[12], pontuacaoVetorFacilEsportes[8], pontuacaoVetorMedioEsportes[10], pontuacaoVetorDificilEsportes[12];
-		char *listaPalavrasFacil[8]={"array", "char", "for", "int", "printf", "return", "scanf", "void"};
+		char *listaPalavrasFacilC[8]={"array", "char", "for", "int", "printf", "return", "scanf", "void"}, *listaPalavrasMedioC[10]={"case", "define", "do", "else", "float", "include", "if", "matrix", "switch", "while"}, *listaPalavrasDificilC[12]={"array", "case", "do", "float", "for", "int", "matrix", "printf", "return", "scanf", "switch", "while"};
 		char nome[TAM];
 		
-		for(i=0; i<8; i++){
-			pontuacaoVetorFacilC[i] = 0;
+		for(i=0; i<8; i++){						//transforma tds os elementos dos vetores em zero
+			pontuacaoVetorFacilC[i] = 0;		
+		}
+		for(i=0; i<10; i++){
+			pontuacaoVetorMedioC[i] = 0;
 		}
 
 		char matrizFacilC[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
@@ -340,11 +343,11 @@
 									if(i==4) printf("\n");
 									if(pontuacaoVetorFacilC[i]==1){
 										printf("\033[0;32m");
-										printf("%s ", listaPalavrasFacil[i]);
+										printf("%s ", listaPalavrasFacilC[i]);
 										printf("\033[0m");
 									}else{
 										printf("\033[0;31m");
-										printf("%s ", listaPalavrasFacil[i]);
+										printf("%s ", listaPalavrasFacilC[i]);
 										printf("\033[0m");
 									}
 								}
@@ -359,7 +362,7 @@
 								printf("Digite o valor de X da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &x2);
-								printf("Digite o valor de X da ultima letra:\n");
+								printf("Digite o valor de Y da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &y2);
 								
@@ -390,6 +393,7 @@
 							
 								system("cls");
 								
+								somaVetorPontos = 0;
 								for(i=0; i<8; i++){
 									somaVetorPontos += pontuacaoVetorFacilC[i];
 								}
@@ -415,6 +419,19 @@
 								system("cls");
 								
 								matriz2(matrizMedioC);
+								printf("\n\nPalavras: \n");
+								for(i=0; i<10; i++){
+									if(i==5) printf("\n");
+									if(pontuacaoVetorMedioC[i]==1){
+										printf("\033[0;32m");
+										printf("%s ", listaPalavrasMedioC[i]);
+										printf("\033[0m");
+									}else{
+										printf("\033[0;31m");
+										printf("%s ", listaPalavrasMedioC[i]);
+										printf("\033[0m");
+									}
+								}
 								
 								printf("\nDigite o valor de X da primeira letra:\n");
 								printf("---> ");
@@ -426,41 +443,48 @@
 								printf("Digite o valor de X da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &x2);
-								printf("Digite o valor de X da ultima letra:\n");
+								printf("Digite o valor de Y da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &y2);
 								
-								if((x1==7 && y1==0) && (x2==7 && y2==4)){
-									pontuacaoVetorMedioC[0]=1;				//
+								if((x1==4 && y1==1) && (x2==4 && y2==4)){
+									pontuacaoVetorMedioC[0]=1;				//case
 								}
-								if((x1==0 && y1==0) && (x2==0 && y2==3)){
-									pontuacaoVetorMedioC[1]=1;				//
+								if((x1==3 && y1==3) && (x2==8 && y2==8)){
+									pontuacaoVetorMedioC[1]=1;				//define
 								}
-								if((x1==1 && y1==7) && (x2==3 && y2==5)){
-									pontuacaoVetorMedioC[2]=1;				//
+								if((x1==8 && y1==0) && (x2==8 && y2==1)){
+									pontuacaoVetorMedioC[2]=1;				//do
 								}
-								if((x1==5 && y1==0) && (x2==5 && y2==2)){
-									pontuacaoVetorMedioC[3]=1;				//
+								if((x1==6 && y1==2) && (x2==9 && y2==2)){
+									pontuacaoVetorMedioC[3]=1;				//else
 								}
-								if((x1==2 && y1==0) && (x2==7 && y2==5)){
-									pontuacaoVetorMedioC[4]=1;				//
+								if((x1==0 && y1==4) && (x2==4 && y2==8)){
+									pontuacaoVetorMedioC[4]=1;				//float
 								}
-								if((x1==0 && y1==4) && (x2==5 && y2==4)){
-									pontuacaoVetorMedioC[5]=1;				//
+								if((x1==1 && y1==2) && (x2==1 && y2==8)){
+									pontuacaoVetorMedioC[5]=1;				//include
 								}
-								if((x1==2 && y1==3) && (x2==6 && y2==3)){
-									pontuacaoVetorMedioC[6]=1;				//
+								if((x1==0 && y1==0) && (x2==1 && y2==1)){
+									pontuacaoVetorMedioC[6]=1;				//if
 								}
-								if((x1==3 && y1==0) && (x2==6 && y2==0)){
-									pontuacaoVetorMedioC[7]=1;				//
+								if((x1==2 && y1==8) && (x2==7 && y2==8)){
+									pontuacaoVetorMedioC[7]=1;				//matrix
+								}
+								if((x1==4 && y1==3) && (x2==9 && y2==3)){
+									pontuacaoVetorMedioC[8]=1;				//switch
+								}
+								if((x1==4 && y1==6) && (x2==8 && y2==6)){
+									pontuacaoVetorMedioC[9]=1;				//while
 								}
 							
 								system("cls");
 								
-								for(i=0; i<8; i++){
+								somaVetorPontos = 8;
+								for(i=0; i<10; i++){
 									somaVetorPontos += pontuacaoVetorMedioC[i];
 								}
-						}while(somaVetorPontos!=1);
+						}while(somaVetorPontos!=18);
 						
 						do{
 							system("cls");
@@ -477,10 +501,79 @@
 								
 								if(codigoContinuar == 1){
 								
+									do{
 									system("cls");
-									
+										
 									matriz3(matrizDificilC);
-									scanf("%d", &comandoJogar);
+									printf("\n\nPalavras: \n");
+									for(i=0; i<12; i++){
+										if(i==6) printf("\n");
+										if(pontuacaoVetorDificilC[i]==1){
+											printf("\033[0;32m");
+											printf("%s ", listaPalavrasDificilC[i]);
+											printf("\033[0m");
+										}else{
+											printf("\033[0;31m");
+											printf("%s ", listaPalavrasDificilC[i]);
+											printf("\033[0m");
+										}
+									}
+								
+									printf("\nDigite o valor de X da primeira letra:\n");
+									printf("---> ");
+									scanf("%d", &x1);
+									printf("Digite o valor de Y da primeira letra:\n");
+									printf("---> ");
+									scanf("%d", &y1);
+									
+									printf("Digite o valor de X da ultima letra:\n");
+									printf("---> ");
+									scanf("%d", &x2);
+									printf("Digite o valor de Y da ultima letra:\n");
+									printf("---> ");
+									scanf("%d", &y2);
+								
+									if((x1==5 && y1==10) && (x2==5 && y2==6)){
+										pontuacaoVetorDificilC[0]=1;				//array
+									}
+									if((x1==10 && y1==10) && (x2==7 && y2==10)){
+										pontuacaoVetorDificilC[1]=1;				//case
+									}
+									if((x1==1 && y1==4) && (x2==0 && y2==5)){
+										pontuacaoVetorDificilC[2]=1;				//do
+									}
+									if((x1==3 && y1==0) && (x2==3 && y2==4)){
+										pontuacaoVetorDificilC[3]=1;				//float
+									}
+									if((x1==0 && y1==4) && (x2==0 && y2==6)){
+										pontuacaoVetorDificilC[4]=1;				//for
+									}
+									if((x1==11 && y1==5) && (x2==11 && y2==7)){
+										pontuacaoVetorDificilC[5]=1;				//int
+									}
+									if((x1==6 && y1==10) && (x2==1 && y2==10)){
+										pontuacaoVetorDificilC[6]=1;				//matrix
+									}
+									if((x1==7 && y1==4) && (x2==2 && y2==4)){
+										pontuacaoVetorDificilC[7]=1;				//printf
+									}
+									if((x1==2 && y1==8) && (x2==7 && y2==3)){
+										pontuacaoVetorDificilC[8]=1;				//return
+									}
+									if((x1==10 && y1==5) && (x2==10 && y2==1)){
+										pontuacaoVetorDificilC[9]=1;				//scanf
+									}
+									if((x1==6 && y1==1) && (x2==1 && y2==6)){
+										pontuacaoVetorDificilC[10]=1;				//switch
+									}
+									if((x1==7 && y1==6) && (x2==7 && y2==10)){
+										pontuacaoVetorDificilC[11]=1;				//while
+									}
+								somaVetorPontos = 18;
+								for(i=0; i<12; i++){
+									somaVetorPontos += pontuacaoVetorDificilC[i];
+								}
+							}while(somaVetorPontos!=30);
 							
 									system("cls");
 									
@@ -618,12 +711,21 @@
 					break;
 					
 				case 3:
+					int espacoLeaderboard;
+					
 					printf("QUADRO DE LÍDERES");
 					printf("\n===================================\n");
 					
 					for(int l = 0; l < numeroVetor; l++){
-						
-						printf("%d - %s  %dpts\n", l + 1, lideres[l], pontos[l]);
+						if(l+1<10){
+							printf("0%d - %s", l + 1, lideres[l]);
+						}else{
+							printf("%d - %s", l + 1, lideres[l]);
+						}
+						for(i=0; i<26-strlen(lideres[l]); i++){
+							printf(" ");
+						}
+						printf("%dpts\n", pontos[l]);
 						
 					}
 					
