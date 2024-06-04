@@ -706,7 +706,10 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("instrucoes");                //sem instrucoes ainda
+					printf("O jogo é constituido por dois temas de palavras, cada tema com três níveis diferentes. 
+						\nO jogador deverá inserir as coordenadas da primeira letra e as coordenada da ultima letra da palavra encontrada, sendo X o valor horizontal e Y o valor vertical. 
+						\nO nível estará completo quando todas as palavras listadas forem encontradas, após todas as palavras serem encontradas será dada a opção de prosseguir para o próximo nível ao jogador. 
+						\nCaso o jogador queira terminar o jogo cedo, deverá *...* mantendo assim a pontuação obtida até o momento.");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
@@ -714,7 +717,6 @@
 					break;
 					
 				case 3:
-					int espacoLeaderboard;
 					
 					printf("QUADRO DE LÍDERES");
 					printf("\n===================================\n");
