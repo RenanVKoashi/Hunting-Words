@@ -2,7 +2,6 @@
 	#include<stdlib.h>
 	#include<locale.h>
 	#include<windows.h>
-	#include<ctype.h>
 	#define TAM 8
 	#define COL1 8
 	#define COL2 10
