@@ -188,17 +188,20 @@
 		
 		int codigo, codigoTema, codigoContinuar, comandoJogar, i, pontuacao = 0, iteracao = 0;
 		int x1=0, y1=0, x2=0, y2=0, somaVetorPontos=0, pontuacaoVetorFacilC[8], pontuacaoVetorMedioC[10], pontuacaoVetorDificilC[12], pontuacaoVetorFacilEsportes[8], pontuacaoVetorMedioEsportes[10], pontuacaoVetorDificilEsportes[12];
-		char leaderboardAuxiliar, *listaPalavrasFacilC[8]={"array", "char", "for", "int", "printf", "return", "scanf", "void"}, *listaPalavrasMedioC[10]={"case", "define", "do", "else", "float", "include", "if", "matrix", "switch", "while"}, *listaPalavrasDificilC[12]={"array", "case", "do", "float", "for", "int", "matrix", "printf", "return", "scanf", "switch", "while"};
+		char leaderboardAuxiliar, *listaPalavrasFacilC[8]={"array", "char", "for", "int", "printf", "return", "scanf", "void"}, *listaPalavrasMedioC[10]={"case", "define", "do", "else", "float", "include", "if", "matrix", "switch", "while"}, *listaPalavrasDificilC[12]={"array", "case", "do", "float", "for", "int", "matrix", "printf", "return", "scanf", "switch", "while"}, *listaPalavrasFacilEsportes[8]={"bola", "gol", "jogador", "quadra", "taça", "tênis", "time", "volei"}, *listaPalavrasMedioEsportes[10]={"atletismo", "ciclismo", "competição", "corrida", "futebol", "maratona", "natação", "partida", "surf", "treino"}, *listaPalavrasDificilEsportes[12]={"basquete", "campo", "equipe", "futsal", "handebol", "medalha", "olimpíadas", "patinação", "skate", "taekwondo", "torcida", "vencedor"};
 		char nome[TAM];
 		
 		for(i=0; i<8; i++){						//transforma tds os elementos dos vetores em zero
-			pontuacaoVetorFacilC[i] = 0;		
+			pontuacaoVetorFacilC[i] = 0;
+			pontuacaoVetorFacilEsportes[i] = 0;		
 		}
 		for(i=0; i<10; i++){
 			pontuacaoVetorMedioC[i] = 0;
+			pontuacaoVetorMedioEsportes[i] = 0;
 		}
 		for(i=0; i<10; i++){
 			pontuacaoVetorDificilC[i] = 0;
+			pontuacaoVetorDificilEsportes[i] = 0;
 		}
 
 		char matrizFacilC[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
@@ -618,8 +621,72 @@
 							break;
 							
 						case 2:
-                            matriz1(matrizFacilEsportes);
-                            scanf("%d", &comandoJogar);
+                            do{
+								
+								system("cls");
+								
+								matriz1(matrizFacilEsportes);
+								printf("\n\nPalavras: \n");
+								for(i=0; i<8; i++){
+									if(i==4) printf("\n");
+									if(pontuacaoVetorFacilEsportes[i]==1){
+										printf("\033[0;32m");
+										printf("%s ", listaPalavrasFacilEsportes[i]);
+										printf("\033[0m");
+									}else{
+										printf("\033[0;31m");
+										printf("%s ", listaPalavrasFacilEsportes[i]);
+										printf("\033[0m");
+									}
+								}
+								
+								printf("\n\nDigite a coordenada X da primeira letra:\n");
+								printf("---> ");
+								scanf("%d", &x1);
+								printf("Digite a coordenada Y da primeira letra:\n");
+								printf("---> ");
+								scanf("%d", &y1);
+								
+								printf("Digite a coordenada X da ultima letra:\n");
+								printf("---> ");
+								scanf("%d", &x2);
+								printf("Digite a coordenada Y da ultima letra:\n");
+								printf("---> ");
+								scanf("%d", &y2);
+								
+								if((x1==1 && y1==3) && (x2==4 && y2==6)){
+									pontuacaoVetorFacilEsportes[0]=1;				//bola
+								}
+								if((x1==5 && y1==1) && (x2==7 && y2==1)){
+									pontuacaoVetorFacilEsportes[1]=1;				//gol
+								}
+								if((x1==0 && y1==0) && (x2==0 && y2==6)){
+									pontuacaoVetorFacilEsportes[2]=1;				//jogador
+								}
+								if((x1==7 && y1==2) && (x2==7 && y2==7)){
+									pontuacaoVetorFacilEsportes[3]=1;				//quadra
+								}
+								if((x1==2 && y1==7) && (x2==5 && y2==7)){
+									pontuacaoVetorFacilEsportes[4]=1;				//taça
+								}
+								if((x1==2 && y1==3) && (x2==6 && y2==3)){
+									pontuacaoVetorFacilEsportes[5]=1;				//tênis
+								}
+								if((x1==3 && y1==0) && (x2==3 && y2==3)){
+									pontuacaoVetorFacilEsportes[6]=1;				//time
+								}
+								if((x1==1 && y1==7) && (x2==5 && y2==3)){
+									pontuacaoVetorFacilEsportes[7]=1;				//volei
+								}
+							
+								system("cls");
+								
+								somaVetorPontos = 0;
+								for(i=0; i<8; i++){
+									somaVetorPontos += pontuacaoVetorFacilEsportes[i];
+								}
+						}while(somaVetorPontos != 8);
+						
 
                             do{
                             	
@@ -641,10 +708,77 @@
 
                             if(codigoContinuar == 1){
 
-                                system("cls");
-
-                                matriz2(matrizMedioEsportes);
-                                scanf("%d", &comandoJogar);
+                                do{
+									
+								system("cls");
+								
+								matriz2(matrizMedioEsportes);
+								printf("\n\nPalavras: \n");
+								for(i=0; i<10; i++){
+									if(i==5) printf("\n");
+									if(pontuacaoVetorMedioEsportes[i]==1){
+										printf("\033[0;32m");
+										printf("%s ", listaPalavrasMedioEsportes[i]);
+										printf("\033[0m");
+									}else{
+										printf("\033[0;31m");
+										printf("%s ", listaPalavrasMedioEsportes[i]);
+										printf("\033[0m");
+									}
+								}
+								
+								printf("\nDigite a coordenada X da primeira letra:\n");
+								printf("---> ");
+								scanf("%d", &x1);
+								printf("Digite a coordenada Y da primeira letra:\n");
+								printf("---> ");
+								scanf("%d", &y1);
+								
+								printf("Digite a coordenada X da ultima letra:\n");
+								printf("---> ");
+								scanf("%d", &x2);
+								printf("Digite a coordenada Y da ultima letra:\n");
+								printf("---> ");
+								scanf("%d", &y2);
+								
+								if((x1==9 && y1==0) && (x2==9 && y2==8)){
+									pontuacaoVetorMedioEsportes[0]=1;				//atletismo
+								}
+								if((x1==0 && y1==0) && (x2==7 && y2==0)){
+									pontuacaoVetorMedioEsportes[1]=1;				//cliclismo
+								}
+								if((x1==0 && y1==0) && (x2==9 && y2==9)){
+									pontuacaoVetorMedioEsportes[2]=1;				//competição
+								}
+								if((x1==0 && y1==2) && (x2==6 && y2==8)){
+									pontuacaoVetorMedioEsportes[3]=1;				//corrida
+								}
+								if((x1==1 && y1==8) && (x2==7 && y2==2)){
+									pontuacaoVetorMedioEsportes[4]=1;				//futebol
+								}
+								if((x1==0 && y1==9) && (x2==7 && y2==9)){
+									pontuacaoVetorMedioEsportes[5]=1;				//maratona
+								}
+								if((x1==8 && y1==3) && (x2==8 && y2==9)){
+									pontuacaoVetorMedioEsportes[6]=1;				//natação
+								}
+								if((x1==3 && y1==3) && (x2==3 && y2==9)){
+									pontuacaoVetorMedioEsportes[7]=1;				//partida
+								}
+								if((x1==5 && y1==0) && (x2==5 && y2==3)){
+									pontuacaoVetorMedioEsportes[8]=1;				//surf
+								}
+								if((x1==0 && y1==3) && (x2==0 && y2==8)){
+									pontuacaoVetorMedioEsportes[9]=1;				//treino
+								}
+							
+								system("cls");
+								
+								somaVetorPontos = 8;
+								for(i=0; i<10; i++){
+									somaVetorPontos += pontuacaoVetorMedioEsportes[i];
+								}
+						}while(somaVetorPontos!=18);
 
                                 do{
                             	
@@ -666,10 +800,79 @@
 
                                 if(codigoContinuar == 1){
 
-                                    system("cls");
-
-                                    matriz3(matrizDificilEsportes);
-                                    scanf("%d", &comandoJogar);
+                                    do{
+									system("cls");
+										
+									matriz3(matrizDificilEsportes);
+									printf("\n\nPalavras: \n");
+									for(i=0; i<12; i++){
+										if(i==6) printf("\n");
+										if(pontuacaoVetorDificilEsportes[i]==1){
+											printf("\033[0;32m");
+											printf("%s ", listaPalavrasDificilEsportes[i]);
+											printf("\033[0m");
+										}else{
+											printf("\033[0;31m");
+											printf("%s ", listaPalavrasDificilEsportes[i]);
+											printf("\033[0m");
+										}
+									}
+								
+									printf("\nDigite a coordenada X da primeira letra:\n");
+									printf("---> ");
+									scanf("%d", &x1);
+									printf("Digite a coordenada Y da primeira letra:\n");
+									printf("---> ");
+									scanf("%d", &y1);
+									
+									printf("Digite a coordenada X da ultima letra:\n");
+									printf("---> ");
+									scanf("%d", &x2);
+									printf("Digite a coordenada Y da ultima letra:\n");
+									printf("---> ");
+									scanf("%d", &y2);
+								
+									if((x1==10 && y1==10) && (x2==10 && y2==3)){
+										pontuacaoVetorDificilEsportes[0]=1;				//basquete
+									}
+									if((x1==5 && y1==11) && (x2==9 && y2==11)){
+										pontuacaoVetorDificilEsportes[1]=1;				//campo
+									}
+									if((x1==11 && y1==6) && (x2==11 && y2==11)){
+										pontuacaoVetorDificilEsportes[2]=1;				//equipe
+									}
+									if((x1==6 && y1==2) && (x2==11 && y2==2)){
+										pontuacaoVetorDificilEsportes[3]=1;				//futsal
+									}
+									if((x1==9 && y1==3) && (x2==2 && y2==3)){
+										pontuacaoVetorDificilEsportes[4]=1;				//handebol
+									}
+									if((x1==4 && y1==8) && (x2==10 && y2==2)){
+										pontuacaoVetorDificilEsportes[5]=1;				//medalha
+									}
+									if((x1==1 && y1==2) && (x2==10 && y2==11)){
+										pontuacaoVetorDificilEsportes[6]=1;				//olímpiadas
+									}
+									if((x1==0 && y1==10) && (x2==0 && y2==2)){
+										pontuacaoVetorDificilEsportes[7]=1;				//patinação
+									}
+									if((x1==8 && y1==1) && (x2==4 && y2==1)){
+										pontuacaoVetorDificilEsportes[8]=1;				//skate
+									}
+									if((x1==1 && y1==9) && (x2==9 && y2==9)){
+										pontuacaoVetorDificilEsportes[9]=1;				//taekwondo
+									}
+									if((x1==1 && y1==9) && (x2==1 && y2==3)){
+										pontuacaoVetorDificilEsportes[10]=1;			//torcida
+									}
+									if((x1==4 && y1==0) && (x2==11 && y2==0)){
+										pontuacaoVetorDificilEsportes[11]=1;			//vencedor
+									}
+								somaVetorPontos = 18;
+								for(i=0; i<12; i++){
+									somaVetorPontos += pontuacaoVetorDificilEsportes[i];
+								}
+							}while(somaVetorPontos!=30);
 
                                     system("cls");
 
