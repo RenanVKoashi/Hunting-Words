@@ -265,7 +265,7 @@
 		}
 
         do{
-			
+			system("cls");	
 			printf("CAÇA-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
 
@@ -327,6 +327,8 @@
 					switch(codigoTema){                     
 						
 						case 1:
+							while(1){
+							
 							do{
 								
 								system("cls");
@@ -392,7 +394,11 @@
 									pontuacao += pontuacaoVetorFacilC[i] * 100;
 								}
 								
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;		//digitar 404 pra desistir
+								
 						}while(somaVetorPontos != 8);
+						
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
 						
 						do{
 							system("cls");
@@ -484,7 +490,11 @@
 									pontuacao += pontuacaoVetorMedioC[i] * 200;
 								}
 								
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
+								
 						}while(somaVetorPontos!=10);
+						
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
 						
 						do{
 							system("cls");
@@ -583,8 +593,12 @@
 										pontuacao += pontuacaoVetorDificilC[i] * 300;
 								
 									}
+									
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
 							
 							}while(somaVetorPontos!=12);
+							
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
 							
 									system("cls");
 									
@@ -624,8 +638,10 @@
 								
 							}
 							break;
-							
+						}
+						break;
 						case 2:
+							while(1){
                             do{
 								
 								system("cls");
@@ -690,8 +706,12 @@
 									somaVetorPontos += pontuacaoVetorFacilEsportes[i];
 									pontuacao += pontuacaoVetorFacilEsportes[i] * 100;
 								}
+								
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
+								
 						}while(somaVetorPontos != 8);
-						
+							
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
 
                             do{
                             	
@@ -783,7 +803,12 @@
 									somaVetorPontos += pontuacaoVetorMedioEsportes[i];
 									pontuacao += pontuacaoVetorMedioEsportes[i] * 200;
 								}
+								
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
+								
 						}while(somaVetorPontos!=10);
+						
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
 
                                 do{
                             	
@@ -879,7 +904,12 @@
 									somaVetorPontos += pontuacaoVetorDificilEsportes[i];
 									pontuacao += pontuacaoVetorDificilEsportes[i] * 300;
 								}
+								
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
+								
 							}while(somaVetorPontos!=12);
+							
+								if(x1==404 || y1==404 || x2==404 || y2==404) break;
 
                                     system("cls");
 
@@ -919,6 +949,8 @@
 
                             }
 							break;
+						}
+						
 						
 						case 3:                           //botao de VOLTAR para o menu
 							Leaderboard(nome, pontuacao);
@@ -970,6 +1002,21 @@
 					return 0;
 				
 			}
+			if(x1==404 || y1==404 || x2==404 || y2==404){
+				system("cls");
+				printf("VOCÊ DESISTIU DO JOGO!");
+				printf("\n===================================\n\n");
+                printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
+                    
+                Leaderboard(nome, pontuacao);
+                pontuacaoVetorFacilEsportes[8] = {0};
+                pontuacaoVetorMedioEsportes[10] = {0};
+                pontuacaoVetorDificilEsportes[12] = {0};
+                pontuacao = 0;
+
+                system("pause");
+                system("cls");
+				}
 			
 		}while(1);
 		
