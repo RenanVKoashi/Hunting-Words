@@ -397,14 +397,12 @@
 								if((x1==3 && y1==0) && (x2==6 && y2==0)){
 									pontuacaoVetorFacilC[7]=1;				//void
 								}
-							
-								system("cls");
 								
 								somaVetorPontos = 0;
 								pontuacao = 0;
 								for(i=0; i<8; i++){
 									somaVetorPontos += pontuacaoVetorFacilC[i];
-									pontuacao += pontuacaoVetorFacilC[i] *  100;
+									pontuacao += pontuacaoVetorFacilC[i] * 100;
 								}
 						}while(somaVetorPontos != 8);
 						
@@ -490,16 +488,14 @@
 								if((x1==4 && y1==6) && (x2==8 && y2==6)){
 									pontuacaoVetorMedioC[9]=1;				//while
 								}
-							
-								system("cls");
 								
-								somaVetorPontos = 8;
+								somaVetorPontos = 0;
 								pontuacao = 800;
 								for(i=0; i<10; i++){
 									somaVetorPontos += pontuacaoVetorMedioC[i];
 									pontuacao += pontuacaoVetorMedioC[i] * 200;
 								}
-						}while(somaVetorPontos!=18);
+						}while(somaVetorPontos!=10);
 						
 						do{
 							system("cls");
@@ -588,13 +584,18 @@
 									if((x1==7 && y1==6) && (x2==7 && y2==10)){
 										pontuacaoVetorDificilC[11]=1;				//while
 									}
-								somaVetorPontos = 18;
-								pontuacao = 2800;
-								for(i=0; i<12; i++){
-									somaVetorPontos += pontuacaoVetorDificilC[i];
-									pontuacao += pontuacaoVetorDificilC[i] * 300;
-								}
-							}while(somaVetorPontos!=30);
+								
+									somaVetorPontos = 0;
+									pontuacao = 2800;
+									
+									for(i=0; i<12; i++){
+									
+										somaVetorPontos += pontuacaoVetorDificilC[i];
+										pontuacao += pontuacaoVetorDificilC[i] * 300;
+								
+									}
+							
+							}while(somaVetorPontos!=12);
 							
 									system("cls");
 									
@@ -684,8 +685,6 @@
 								if((x1==1 && y1==7) && (x2==5 && y2==3)){
 									pontuacaoVetorFacilEsportes[7]=1;				//volei
 								}
-							
-								system("cls");
 								
 								somaVetorPontos = 0;
 								pontuacao = 0;
@@ -779,8 +778,6 @@
 								if((x1==0 && y1==3) && (x2==0 && y2==8)){
 									pontuacaoVetorMedioEsportes[9]=1;				//treino
 								}
-							
-								system("cls");
 								
 								somaVetorPontos = 8;
 								pontuacao = 800;
