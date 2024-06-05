@@ -32,7 +32,7 @@
             		
            	system("cls");
             		
-			printf("---o\n");
+			printf("---o");
             Sleep(100);
             		
             system("cls");
