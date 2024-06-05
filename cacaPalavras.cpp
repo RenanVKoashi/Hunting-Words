@@ -111,11 +111,11 @@
 			
 	}
 
-	void matriz1(char matriz[][COL1]){               //funcao para escrever as matrizez faceis
+	void matriz1(char matriz[][COL1], int pontuacao){               //funcao para escrever as matrizez faceis
 		
 		int i, j;
 		
-		printf("   0 1 2 3 4 5 6 7 * X\n\n");
+		printf("   0 1 2 3 4 5 6 7 * X     pontos: %d\n\n", pontuacao);
 		
 		for(i = 0; i < COL1; i++){
 			
@@ -134,11 +134,11 @@
 			
 	}
 	
-	void matriz2(char matriz[][COL2]){           //matrizes medias
+	void matriz2(char matriz[][COL2], int pontuacao){           //matrizes medias
 		
 		int i, j;
 		
-		printf("   0 1 2 3 4 5 6 7 8 9 * X\n\n");
+		printf("   0 1 2 3 4 5 6 7 8 9 * X     pontos: %d\n\n", pontuacao);
 		
 		for(i = 0; i < COL2; i++){
 			
@@ -157,11 +157,11 @@
 		
 	}
 
-	void matriz3(char matriz[][COL3]){            //matrizes dificeis
+	void matriz3(char matriz[][COL3], int pontuacao){            //matrizes dificeis
 		
 		int i, j;
 		
-		printf("    0 1 2 3 4 5 6 7 8 9 10 11 * X\n\n");
+		printf("    0 1 2 3 4 5 6 7 8 9 10 11 * X     pontos: %d\n\n", pontuacao);
 		
 		for(i = 0; i < COL3; i++){
 			
@@ -344,7 +344,7 @@
 								
 								system("cls");
 								
-								matriz1(matrizFacilC);
+								matriz1(matrizFacilC, pontuacao);
 								printf("\n\nPalavras: \n");
 								for(i=0; i<8; i++){
 									if(i==4) printf("\n");
@@ -401,8 +401,10 @@
 								system("cls");
 								
 								somaVetorPontos = 0;
+								pontuacao = 0;
 								for(i=0; i<8; i++){
 									somaVetorPontos += pontuacaoVetorFacilC[i];
+									pontuacao += pontuacaoVetorFacilC[i] *  100;
 								}
 						}while(somaVetorPontos != 8);
 						
@@ -429,7 +431,7 @@
 									
 								system("cls");
 								
-								matriz2(matrizMedioC);
+								matriz2(matrizMedioC, pontuacao);
 								printf("\n\nPalavras: \n");
 								for(i=0; i<10; i++){
 									if(i==5) printf("\n");
@@ -492,8 +494,10 @@
 								system("cls");
 								
 								somaVetorPontos = 8;
+								pontuacao = 800;
 								for(i=0; i<10; i++){
 									somaVetorPontos += pontuacaoVetorMedioC[i];
+									pontuacao += pontuacaoVetorMedioC[i] * 200;
 								}
 						}while(somaVetorPontos!=18);
 						
@@ -519,7 +523,7 @@
 									do{
 									system("cls");
 										
-									matriz3(matrizDificilC);
+									matriz3(matrizDificilC, pontuacao);
 									printf("\n\nPalavras: \n");
 									for(i=0; i<12; i++){
 										if(i==6) printf("\n");
@@ -585,8 +589,10 @@
 										pontuacaoVetorDificilC[11]=1;				//while
 									}
 								somaVetorPontos = 18;
+								pontuacao = 2800;
 								for(i=0; i<12; i++){
 									somaVetorPontos += pontuacaoVetorDificilC[i];
+									pontuacao += pontuacaoVetorDificilC[i] * 300;
 								}
 							}while(somaVetorPontos!=30);
 							
@@ -594,7 +600,7 @@
 									
 									printf("VOCÊ FINALIZOU TODOS OS NÍVEIS!");
 									printf("\n===================================\n\n");
-									printf("PONTUAÇÃO: PONTOS\n\n");
+									printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
 									
 									Leaderboard(nome, pontuacao);
 									
@@ -625,7 +631,7 @@
 								
 								system("cls");
 								
-								matriz1(matrizFacilEsportes);
+								matriz1(matrizFacilEsportes, pontuacao);
 								printf("\n\nPalavras: \n");
 								for(i=0; i<8; i++){
 									if(i==4) printf("\n");
@@ -682,8 +688,10 @@
 								system("cls");
 								
 								somaVetorPontos = 0;
+								pontuacao = 0;
 								for(i=0; i<8; i++){
 									somaVetorPontos += pontuacaoVetorFacilEsportes[i];
+									pontuacao += pontuacaoVetorFacilEsportes[i] * 100;
 								}
 						}while(somaVetorPontos != 8);
 						
@@ -712,7 +720,7 @@
 									
 								system("cls");
 								
-								matriz2(matrizMedioEsportes);
+								matriz2(matrizMedioEsportes, pontuacao);
 								printf("\n\nPalavras: \n");
 								for(i=0; i<10; i++){
 									if(i==5) printf("\n");
@@ -775,8 +783,10 @@
 								system("cls");
 								
 								somaVetorPontos = 8;
+								pontuacao = 800;
 								for(i=0; i<10; i++){
 									somaVetorPontos += pontuacaoVetorMedioEsportes[i];
+									pontuacao += pontuacaoVetorMedioEsportes[i] * 200;
 								}
 						}while(somaVetorPontos!=18);
 
@@ -803,7 +813,7 @@
                                     do{
 									system("cls");
 										
-									matriz3(matrizDificilEsportes);
+									matriz3(matrizDificilEsportes, pontuacao);
 									printf("\n\nPalavras: \n");
 									for(i=0; i<12; i++){
 										if(i==6) printf("\n");
@@ -869,8 +879,10 @@
 										pontuacaoVetorDificilEsportes[11]=1;			//vencedor
 									}
 								somaVetorPontos = 18;
+								pontuacao = 2800;
 								for(i=0; i<12; i++){
 									somaVetorPontos += pontuacaoVetorDificilEsportes[i];
+									pontuacao += pontuacaoVetorDificilEsportes[i] * 300;
 								}
 							}while(somaVetorPontos!=30);
 
@@ -878,7 +890,7 @@
 
                                     printf("VOCÊ FINALIZOU TODOS OS NÍVEIS!");
                                     printf("\n===================================\n\n");
-                                    printf("PONTUAÇÃO: PONTOS\n\n");
+                                    printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
                                     
                                     Leaderboard(nome, pontuacao);
 
