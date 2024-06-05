@@ -332,6 +332,7 @@
 						
 						case 1:
 							do{
+								
 								system("cls");
 								
 								matriz1(matrizFacilC);
@@ -393,7 +394,7 @@
 								for(i=0; i<8; i++){
 									somaVetorPontos += pontuacaoVetorFacilC[i];
 								}
-						}while(somaVetorPontos!=8);
+						}while(somaVetorPontos != 8);
 						
 						do{
 							system("cls");
