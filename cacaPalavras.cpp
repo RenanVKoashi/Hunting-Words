@@ -8,14 +8,14 @@
 	#define COL3 12
 
 	int pontos[10] = {0}, size = 0;                 //variavel universal no codigo(pode ter o valor alterado pelas funcoes)
-	char *lideres[] = {"Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player", "Player"}; //este pode ser considerado um vetor de strings, e n caracteres. 
+	char *lideres[] = {"--------", "--------", "--------", "--------", "--------", "--------", "--------", "--------", "--------", "--------"}; //este pode ser considerado um vetor de strings, e n caracteres. 
 	int numeroVetor = sizeof(lideres) / sizeof(lideres[0]);      //quantidade de strings dentro do vetor lideres[]
 
-    void menuCarregamento(int i){	// Fun√ß√£o que deve ser chamada sempre que a tela de carregamento for necess√°ria
+    void menuCarregamento(int i){	// Funcao que deve ser chamada sempre que a tela de carregamento for necessaria
         
         for(i=0; i<4; i++){
         	
-            system("cls");    // Comando Sleep tem a fun√ß√£o de parar a execu√ß√£o pelo tempo determinado
+            system("cls");    // Comando Sleep tem a funcao de parar a execucao pelo tempo determinado
             
 			printf("o---");
             Sleep(100);
@@ -111,11 +111,11 @@
 			
 	}
 
-	void matriz1(char matriz[][COL1]){               //fun√ß√£o para escrever a matriz
+	void matriz1(char matriz[][COL1]){               //funcao para escrever as matrizez faceis
 		
 		int i, j;
 		
-		printf("   0 1 2 3 4 5 6 7*X\n\n");
+		printf("   0 1 2 3 4 5 6 7 * X\n\n");
 		
 		for(i = 0; i < COL1; i++){
 			
@@ -134,11 +134,11 @@
 			
 	}
 	
-	void matriz2(char matriz[][COL2]){
+	void matriz2(char matriz[][COL2]){           //matrizes medias
 		
 		int i, j;
 		
-		printf("   0 1 2 3 4 5 6 7 8 9*X\n\n");
+		printf("   0 1 2 3 4 5 6 7 8 9 * X\n\n");
 		
 		for(i = 0; i < COL2; i++){
 			
@@ -157,11 +157,11 @@
 		
 	}
 
-	void matriz3(char matriz[][COL3]){
+	void matriz3(char matriz[][COL3]){            //matrizes dificeis
 		
 		int i, j;
 		
-		printf("    0 1 2 3 4 5 6 7 8 9 10 11*X\n\n");
+		printf("    0 1 2 3 4 5 6 7 8 9 10 11 * X\n\n");
 		
 		for(i = 0; i < COL3; i++){
 			
@@ -270,16 +270,16 @@
 
 		for(int z = 0; z < numeroVetor; z++){
 			
-			lideres[z] = strdup("Player");          //evitar conflitos na troca de variaveis
+			lideres[z] = strdup("--------");          //evitar conflitos na troca de variaveis
 			
 		}
 
         do{
 			
-			printf("CA√áA-PALAVRAS");
+			printf("CA«A-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
 
-			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L√çDERES\n4. SAIR\n\n");
+			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÕDERES\n4. SAIR\n\n");
 			printf("---> ");
 			scanf("%d", &codigo);
 			
@@ -291,9 +291,9 @@
 			
 			while(codigo < 1 || codigo > 4){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
-				printf("CA√áA-PALAVRAS");
+				printf("CA«A-PALAVRAS");
 				printf("\n===================================\n");
-				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L√çDERES\n4. SAIR\n\n");
+				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÕDERES\n4. SAIR\n\n");
 				printf("---> ");
 				scanf("%d", &codigo);	
 				
@@ -316,7 +316,7 @@
 					                             		    
 					printf("JOGAR - ESCOLHA UM TEMA");											//tela para selecionar o tema de jogo q vai ser jogado
 					printf("\n===================================\n");
-					printf("1. PROGRAMA√á√ÉO\n2. ESPORTES\n3. VOLTAR\n\n");
+					printf("1. PROGRAMA«√O\n2. ESPORTES\n3. VOLTAR\n\n");
 					printf("---> ");
 					scanf("%d", &codigoTema);
 					
@@ -326,7 +326,7 @@
 						
 						printf("JOGAR - ESCOLHA UM TEMA");
 						printf("\n===================================\n");
-						printf("1. PROGRAMA√á√ÉO\n2. ESPORTES\n3. VOLTAR\n\n");
+						printf("1. PROGRAMA«√O\n2. ESPORTES\n3. VOLTAR\n\n");
 						printf("---> ");
 						scanf("%d", &codigoTema);
 					
@@ -356,17 +356,17 @@
 									}
 								}
 								
-								printf("\n\nDigite o valor de X da primeira letra:\n");
+								printf("\n\nDigite a coordenada X da primeira letra:\n");
 								printf("---> ");
 								scanf("%d", &x1);
-								printf("Digite o valor de Y da primeira letra:\n");
+								printf("Digite a coordenada Y da primeira letra:\n");
 								printf("---> ");
 								scanf("%d", &y1);
 								
-								printf("Digite o valor de X da ultima letra:\n");
+								printf("Digite a coordenada X da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &x2);
-								printf("Digite o valor de Y da ultima letra:\n");
+								printf("Digite a coordenada Y da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &y2);
 								
@@ -405,21 +405,25 @@
 						
 						do{
 							system("cls");
-							printf("VOC√ä ENCONTROU TODAS AS PALAVRAS!");
+							printf("VOC  ENCONTROU TODAS AS PALAVRAS!");
 							printf("\n===================================\n");
-							printf("PR√ìXIMO N√çVEL?\n1. SIM\n2. N√ÉO\n\n");
+							printf("PR”XIMO NÕVEL?\n1. SIM\n2. N√O\n\n");
 							printf("---> ");
 							scanf("%d", &codigoContinuar);
 					
-							if(codigoContinuar < 1 || codigoContinuar > 2) printf("\nDigite um comando v√°lido.");
-							Sleep(2000);
+							if(codigoContinuar < 1 || codigoContinuar > 2){
+								
+								printf("\nDigite um comando v·lido.");
+								Sleep(2000);
+								
+							}
 							
 						}while(codigoContinuar < 1 || codigoContinuar > 2);
-							
-							
+											
 							if(codigoContinuar == 1){
 								
 								do{
+									
 								system("cls");
 								
 								matriz2(matrizMedioC);
@@ -437,17 +441,17 @@
 									}
 								}
 								
-								printf("\nDigite o valor de X da primeira letra:\n");
+								printf("\nDigite a coordenada X da primeira letra:\n");
 								printf("---> ");
 								scanf("%d", &x1);
-								printf("Digite o valor de Y da primeira letra:\n");
+								printf("Digite a coordenada Y da primeira letra:\n");
 								printf("---> ");
 								scanf("%d", &y1);
 								
-								printf("Digite o valor de X da ultima letra:\n");
+								printf("Digite a coordenada X da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &x2);
-								printf("Digite o valor de Y da ultima letra:\n");
+								printf("Digite a coordenada Y da ultima letra:\n");
 								printf("---> ");
 								scanf("%d", &y2);
 								
@@ -492,14 +496,18 @@
 						
 						do{
 							system("cls");
-							printf("VOC√ä ENCONTROU TODAS AS PALAVRAS!");
+							printf("VOC  ENCONTROU TODAS AS PALAVRAS!");
 							printf("\n===================================\n");
-							printf("PR√ìXIMO N√çVEL?\n1. SIM\n2. N√ÉO\n\n");
+							printf("PR”XIMO NÕVEL?\n1. SIM\n2. N√O\n\n");
 							printf("---> ");
 							scanf("%d", &codigoContinuar);
 					
-							if(codigoContinuar < 1 || codigoContinuar > 2) printf("\nDigite um comando v√°lido.");
-							Sleep(2000);
+							if(codigoContinuar < 1 || codigoContinuar > 2){
+								
+								printf("\nDigite um comando v·lido.");
+								Sleep(2000);
+								
+							}
 							
 						}while(codigoContinuar < 1 || codigoContinuar > 2);
 								
@@ -523,17 +531,17 @@
 										}
 									}
 								
-									printf("\nDigite o valor de X da primeira letra:\n");
+									printf("\nDigite a coordenada X da primeira letra:\n");
 									printf("---> ");
 									scanf("%d", &x1);
-									printf("Digite o valor de Y da primeira letra:\n");
+									printf("Digite a coordenada Y da primeira letra:\n");
 									printf("---> ");
 									scanf("%d", &y1);
 									
-									printf("Digite o valor de X da ultima letra:\n");
+									printf("Digite a coordenada X da ultima letra:\n");
 									printf("---> ");
 									scanf("%d", &x2);
-									printf("Digite o valor de Y da ultima letra:\n");
+									printf("Digite a coordenada Y da ultima letra:\n");
 									printf("---> ");
 									scanf("%d", &y2);
 								
@@ -581,9 +589,9 @@
 							
 									system("cls");
 									
-									printf("VOC√ä FINALIZOU TODOS OS N√çVEIS!");
+									printf("VOC  FINALIZOU TODOS OS NÕVEIS!");
 									printf("\n===================================\n\n");
-									printf("PONTUA√á√ÉO: PONTOS\n\n");
+									printf("PONTUA«√O: PONTOS\n\n");
 									
 									Leaderboard(nome, pontuacao);
 									
@@ -613,25 +621,23 @@
                             matriz1(matrizFacilEsportes);
                             scanf("%d", &comandoJogar);
 
-                            system("cls");
-
-                            printf("VOC√ä ENCONTROU TODAS AS PALAVRAS!");
-                            printf("\n===================================\n");
-                            printf("PR√ìXIMO N√çVEL?\n1. SIM\n2. N√ÉO\n\n");
-                            printf("---> ");
-                            scanf("%d", &codigoContinuar);
-
-                            while(codigoContinuar < 1 || codigoContinuar > 2){
-
-                                system("cls");
-
-                                printf("VOC√ä ENCONTROU TODAS AS PALAVRAS!");
-                                printf("\n===================================\n");
-                                printf("PR√ìXIMO N√çVEL?\n1. SIM\n2. N√ÉO\n\n");
-                                printf("---> ");
-                                scanf("%d", &codigoContinuar);
-
-                            }
+                            do{
+                            	
+								system("cls");
+								printf("VOC  ENCONTROU TODAS AS PALAVRAS!");
+								printf("\n===================================\n");
+								printf("PR”XIMO NÕVEL?\n1. SIM\n2. N√O\n\n");
+								printf("---> ");
+								scanf("%d", &codigoContinuar);
+					
+								if(codigoContinuar < 1 || codigoContinuar > 2){
+								
+									printf("\nDigite um comando v·lido.");
+									Sleep(2000);
+								
+								}
+							
+							}while(codigoContinuar < 1 || codigoContinuar > 2);
 
                             if(codigoContinuar == 1){
 
@@ -640,25 +646,23 @@
                                 matriz2(matrizMedioEsportes);
                                 scanf("%d", &comandoJogar);
 
-                                system("cls");
-
-                                printf("VOC√ä ENCONTROU TODAS AS PALAVRAS!");
-                                printf("\n===================================\n");
-                                printf("PR√ìXIMO N√çVEL?\n1. SIM\n2. N√ÉO\n\n");
-                                printf("---> ");
-                                scanf("%d", &codigoContinuar);
-
-                                while(codigoContinuar < 1 || codigoContinuar > 2){
-
-                                    system("cls");
-
-                                    printf("VOC√ä ENCONTROU TODAS AS PALAVRAS!");
-                                    printf("\n===================================\n");
-                                    printf("PR√ìXIMO N√çVEL?\n1. SIM\n2. N√ÉO\n\n");
-                                    printf("---> ");
-                                    scanf("%d", &codigoContinuar);
-
-                                }
+                                do{
+                            	
+									system("cls");
+									printf("VOC  ENCONTROU TODAS AS PALAVRAS!");
+									printf("\n===================================\n");
+									printf("PR”XIMO NÕVEL?\n1. SIM\n2. N√O\n\n");
+									printf("---> ");
+									scanf("%d", &codigoContinuar);
+					
+									if(codigoContinuar < 1 || codigoContinuar > 2){
+								
+										printf("\nDigite um comando v·lido.");
+										Sleep(2000);
+								
+									}
+							
+								}while(codigoContinuar < 1 || codigoContinuar > 2);
 
                                 if(codigoContinuar == 1){
 
@@ -669,9 +673,9 @@
 
                                     system("cls");
 
-                                    printf("VOC√ä FINALIZOU TODOS OS N√çVEIS!");
+                                    printf("VOC  FINALIZOU TODOS OS NÕVEIS!");
                                     printf("\n===================================\n\n");
-                                    printf("PONTUA√á√ÉO: PONTOS\n\n");
+                                    printf("PONTUA«√O: PONTOS\n\n");
                                     
                                     Leaderboard(nome, pontuacao);
 
@@ -707,10 +711,10 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("O jogo √© constituido por dois temas de palavras, cada tema com tr√™s n√≠veis diferentes. 
-						\nO jogador dever√° inserir as coordenadas da primeira letra e as coordenada da ultima letra da palavra encontrada, sendo X o valor horizontal e Y o valor vertical. 
-						\nO n√≠vel estar√° completo quando todas as palavras listadas forem encontradas, ap√≥s todas as palavras serem encontradas ser√° dada a op√ß√£o de prosseguir para o pr√≥ximo n√≠vel ao jogador. 
-						\nCaso o jogador queira terminar o jogo cedo, dever√° *...* mantendo assim a pontua√ß√£o obtida at√© o momento.");                //sem instrucoes ainda
+					printf("O jogo È constituÌdo por dois temas de palavras, cada tema com trÍs nÌveis diferentes."); 
+					printf("\nO jogador dever· inserir as coordenadas da primeira letra e as coordenada da ultima letra da palavra encontrada, sendo X o valor horizontal e Y o valor vertical.");
+					printf("\nO nÌvel estar· completo quando todas as palavras listadas forem encontradas. ApÛs todas as palavras serem encontradas, ser· dada a opÁ„o de prosseguir para o prÛximo nÌvel ao jogador.");
+					printf("\nCaso o jogador queira terminar o jogo cedo, dever· *...* mantendo assim a pontuaÁ„o obtida atÈ o momento.");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
@@ -719,7 +723,7 @@
 					
 				case 3:
 					
-					printf("QUADRO DE L√çDERES");
+					printf("QUADRO DE LÕDERES");
 					printf("\n===================================\n");
 					
 					for(int l = 0; l < numeroVetor; l++){
