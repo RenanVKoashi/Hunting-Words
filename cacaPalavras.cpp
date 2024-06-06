@@ -983,8 +983,21 @@
 						}else{
 							printf("%d - %s", l + 1, lideres[l]);
 						}
-						for(i=0; i<26-strlen(lideres[l]); i++){
-							printf(" ");
+						
+						if(pontos[l]>=0 && pontos[l]<=9){
+							for(i=0; i<26-strlen(lideres[l]); i++){
+								printf(" ");
+							}
+						}
+						if(pontos[l]>=100 && pontos[l]<=999){
+							for(i=0; i<24-strlen(lideres[l]); i++){
+								printf(" ");
+							}
+						}
+						if(pontos[l]>=1000 && pontos[l]<=9999){
+							for(i=0; i<23-strlen(lideres[l]); i++){
+								printf(" ");
+							}
 						}
 						printf("%dpts\n", pontos[l]);
 						
