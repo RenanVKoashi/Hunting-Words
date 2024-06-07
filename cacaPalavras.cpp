@@ -950,6 +950,7 @@
                             }
 							break;
 						}
+						break;
 						
 						
 						case 3:                           //botao de VOLTAR para o menu
@@ -1026,6 +1027,11 @@
                 pontuacaoVetorMedioEsportes[10] = {0};
                 pontuacaoVetorDificilEsportes[12] = {0};
                 pontuacao = 0;
+                
+                x1 = 0;
+                y1 = 0;
+                x2 = 0;
+                y2 = 0;
 
                 system("pause");
                 system("cls");
