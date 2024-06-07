@@ -327,7 +327,6 @@
 					switch(codigoTema){                     
 						
 						case 1:
-							while(1){
 							
 							do{
 								
@@ -394,7 +393,29 @@
 									pontuacao += pontuacaoVetorFacilC[i] * 100;
 								}
 								
-								if(x1==404 || y1==404 || x2==404 || y2==404) break;		//digitar 404 pra desistir
+								if(x1==404 || y1==404 || x2==404 || y2==404){
+																	
+									system("cls");
+									printf("VOCÊ DESISTIU DO JOGO!");
+									printf("\n===================================\n\n");
+               						printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
+               						
+               						Leaderboard(nome, pontuacao);
+               						pontuacaoVetorFacilC[8]= {0};
+                
+               						x1=0;	
+									y1=0;
+                					x2=0;
+               						y2=0;
+
+                					system("pause");
+                					system("cls");
+                					
+                					break;
+                					break;
+								}
+										
+											//digitar 404 pra desistir
 								
 						}while(somaVetorPontos != 8);
 						
@@ -638,10 +659,10 @@
 								
 							}
 							break;
-						}
+						
 						break;
 						case 2:
-							while(1){
+						
                             do{
 								
 								system("cls");
@@ -949,7 +970,7 @@
 
                             }
 							break;
-						}
+						
 						
 						
 						case 3:                           //botao de VOLTAR para o menu
@@ -1015,26 +1036,6 @@
 					return 0;
 				
 			}
-			if(x1==404 || y1==404 || x2==404 || y2==404){
-				system("cls");
-				printf("VOCÊ DESISTIU DO JOGO!");
-				printf("\n===================================\n\n");
-                printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
-                    
-                Leaderboard(nome, pontuacao);
-                pontuacaoVetorFacilEsportes[8] = {0};
-                pontuacaoVetorMedioEsportes[10] = {0};
-                pontuacaoVetorDificilEsportes[12] = {0};
-                pontuacao = 0;
-                
-                x1=0;
-                y1=0;
-                x2=0;
-                y2=0;
-
-                system("pause");
-                system("cls");
-				}
 			
 		}while(1);
 		
