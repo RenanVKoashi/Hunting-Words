@@ -8,6 +8,7 @@
 	#define COL3 12
 
 	int pontos[10] = {0}, size = 0;                 //variavel universal no codigo(pode ter o valor alterado pelas funcoes)
+	int pontuacaoVetorFacilC[8] = {0}, pontuacaoVetorMedioC[10] = {0}, pontuacaoVetorDificilC[12] = {0}, pontuacaoVetorFacilEsportes[8] = {0}, pontuacaoVetorMedioEsportes[10] = {0}, pontuacaoVetorDificilEsportes[12] = {0};
 	char *lideres[] = {"--------", "--------", "--------", "--------", "--------", "--------", "--------", "--------", "--------", "--------"}; //este pode ser considerado um vetor de strings, e n caracteres. 
 	int numeroVetor = sizeof(lideres) / sizeof(lideres[0]);      //quantidade de strings dentro do vetor lideres[]
 
@@ -48,6 +49,28 @@
     	
     	while(getchar() != '\n');
     	
+	}
+	
+	void resetarValores(int vetorFacil[8], int vetorMedio[10], int vetorDificil[12]){
+		
+		for(int i = 0; i < 8; i++){
+			
+			vetorFacil[i] = 0;		
+			
+		}              
+		
+		for(int j = 0; j < 10; j++){
+			
+			vetorMedio[j] = 0;
+			
+		}
+		
+		for(int s = 0; s < 12; s++){
+			
+			vetorDificil[s] = 0;
+			
+		}
+	
 	}
 	
 	void Leaderboard(char nome[TAM], int pontuacao){
@@ -187,7 +210,7 @@
 		setlocale(LC_ALL, "PORTUGUESE");
 		
 		int codigo, codigoTema, codigoContinuar, comandoJogar, i, pontuacao = 0, iteracao = 0;
-		int x1=0, y1=0, x2=0, y2=0, somaVetorPontos = 0, pontuacaoVetorFacilC[8] = {0}, pontuacaoVetorMedioC[10] = {0}, pontuacaoVetorDificilC[12] = {0}, pontuacaoVetorFacilEsportes[8] = {0}, pontuacaoVetorMedioEsportes[10] = {0}, pontuacaoVetorDificilEsportes[12] = {0};
+		int x1=0, y1=0, x2=0, y2=0, somaVetorPontos = 0;
 		char leaderboardAuxiliar, *listaPalavrasFacilC[8]={"array", "char", "for", "int", "printf", "return", "scanf", "void"}, *listaPalavrasMedioC[10]={"case", "define", "do", "else", "float", "include", "if", "matrix", "switch", "while"}, *listaPalavrasDificilC[12]={"array", "case", "do", "float", "for", "int", "matrix", "printf", "return", "scanf", "switch", "while"}, *listaPalavrasFacilEsportes[8]={"bola", "gol", "jogador", "quadra", "taça", "tênis", "time", "volei"}, *listaPalavrasMedioEsportes[10]={"atletismo", "ciclismo", "competição", "corrida", "futebol", "maratona", "natação", "partida", "surf", "treino"}, *listaPalavrasDificilEsportes[12]={"basquete", "campo", "equipe", "futsal", "handebol", "medalha", "olimpíadas", "patinação", "skate", "taekwondo", "torcida", "vencedor"};
 		char nome[TAM];
 
@@ -607,9 +630,7 @@
 									printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
 									
 									Leaderboard(nome, pontuacao);
-									pontuacaoVetorFacilC[8] = {0};
-									pontuacaoVetorMedioC[10] = {0};
-									pontuacaoVetorDificilC[12] = {0};
+									resetarValores(pontuacaoVetorFacilC, pontuacaoVetorMedioC, pontuacaoVetorDificilC);
 									pontuacao = 0;
 									
 									system("pause");
@@ -618,8 +639,7 @@
 								}else{
 									
 									Leaderboard(nome, pontuacao);
-									pontuacaoVetorFacilC[8] = {0};
-									pontuacaoVetorMedioC[10] = {0};
+									resetarValores(pontuacaoVetorFacilC, pontuacaoVetorMedioC, pontuacaoVetorDificilC);
 									pontuacao = 0;
 									
 									system("cls");
@@ -630,7 +650,7 @@
 							}else{
 								
 								Leaderboard(nome, pontuacao);
-								pontuacaoVetorFacilC[8] = {0};
+								resetarValores(pontuacaoVetorFacilC, pontuacaoVetorMedioC, pontuacaoVetorDificilC);
 								pontuacao = 0;
 								
 								system("cls");
@@ -918,9 +938,7 @@
                                     printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
                                     
                                     Leaderboard(nome, pontuacao);
-                                    pontuacaoVetorFacilEsportes[8] = {0};
-                                    pontuacaoVetorMedioEsportes[10] = {0};
-                                    pontuacaoVetorDificilEsportes[12] = {0};
+                                    resetarValores(pontuacaoVetorFacilEsportes, pontuacaoVetorMedioEsportes, pontuacaoVetorDificilEsportes);
                                     pontuacao = 0;
 
                                     system("pause");
@@ -929,8 +947,7 @@
                                 }else{
                                 	
                                 	Leaderboard(nome, pontuacao);
-                                	pontuacaoVetorFacilEsportes[8] = {0};
-                                	pontuacaoVetorMedioEsportes[10] = {0};
+                                	resetarValores(pontuacaoVetorFacilEsportes, pontuacaoVetorMedioEsportes, pontuacaoVetorDificilEsportes);
                                 	pontuacao = 0;
 
                                     system("cls");
@@ -941,7 +958,7 @@
                             }else{
                             	
                             	Leaderboard(nome, pontuacao);
-                            	pontuacaoVetorFacilEsportes[8] = {0};
+                            	resetarValores(pontuacaoVetorFacilEsportes, pontuacaoVetorMedioEsportes, pontuacaoVetorDificilEsportes);
                             	pontuacao = 0;
 
                                 system("cls");
@@ -1023,9 +1040,8 @@
                 printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
                     
                 Leaderboard(nome, pontuacao);
-                pontuacaoVetorFacilEsportes[8] = {0};
-                pontuacaoVetorMedioEsportes[10] = {0};
-                pontuacaoVetorDificilEsportes[12] = {0};
+                resetarValores(pontuacaoVetorFacilC, pontuacaoVetorMedioC, pontuacaoVetorDificilC);
+                resetarValores(pontuacaoVetorFacilEsportes, pontuacaoVetorMedioEsportes, pontuacaoVetorDificilEsportes);
                 pontuacao = 0;
                 
                 x1 = 0;
