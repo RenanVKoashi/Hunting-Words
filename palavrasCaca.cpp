@@ -188,7 +188,7 @@
 		
 		int codigo, codigoTema, codigoContinuar, comandoJogar, i, pontuacao = 0, iteracao = 0;
 		int x1=0, y1=0, x2=0, y2=0, somaVetorPontos = 0, pontuacaoVetorFacilC[8] = {0}, pontuacaoVetorMedioC[10] = {0}, pontuacaoVetorDificilC[12] = {0}, pontuacaoVetorFacilEsportes[8] = {0}, pontuacaoVetorMedioEsportes[10] = {0}, pontuacaoVetorDificilEsportes[12] = {0};
-		char leaderboardAuxiliar, *listaPalavrasFacilC[8]={"array", "char", "for", "int", "printf", "return", "scanf", "void"}, *listaPalavrasMedioC[10]={"case", "define", "do", "else", "float", "include", "if", "matrix", "switch", "while"}, *listaPalavrasDificilC[12]={"array", "case", "do", "float", "for", "int", "matrix", "printf", "return", "scanf", "switch", "while"}, *listaPalavrasFacilEsportes[8]={"bola", "gol", "jogador", "quadra", "ta�a", "t�nis", "time", "volei"}, *listaPalavrasMedioEsportes[10]={"atletismo", "ciclismo", "competi��o", "corrida", "futebol", "maratona", "nata��o", "partida", "surf", "treino"}, *listaPalavrasDificilEsportes[12]={"basquete", "campo", "equipe", "futsal", "handebol", "medalha", "olimp�adas", "patina��o", "skate", "taekwondo", "torcida", "vencedor"};
+		char leaderboardAuxiliar, *listaPalavrasFacilC[8]={"array", "char", "for", "int", "printf", "return", "scanf", "void"}, *listaPalavrasMedioC[10]={"case", "define", "do", "else", "float", "include", "if", "matrix", "switch", "while"}, *listaPalavrasDificilC[12]={"array", "case", "do", "float", "for", "int", "matrix", "printf", "return", "scanf", "switch", "while"}, *listaPalavrasFacilEsportes[8]={"bola", "gol", "jogador", "quadra", "taÃ§a", "tÃªnis", "time", "volei"}, *listaPalavrasMedioEsportes[10]={"atletismo", "ciclismo", "competiÃ§Ã£o", "corrida", "futebol", "maratona", "nataÃ§Ã£o", "partida", "surf", "treino"}, *listaPalavrasDificilEsportes[12]={"basquete", "campo", "equipe", "futsal", "handebol", "medalha", "olimpÃ­adas", "patinaÃ§Ã£o", "skate", "taekwondo", "torcida", "vencedor"};
 		char nome[TAM];
 
 		char matrizFacilC[8][8] = {{'C', 'E', 'P', 'V', 'O', 'I', 'D', 'A'},
@@ -265,11 +265,22 @@
 		}
 
         do{
+        	
+        	pontuacaoVetorFacilC[8] = {0};
+            pontuacaoVetorMedioC[10] = {0};
+            pontuacaoVetorDificilC[12] = {0};
+            
+        	
+        	pontuacaoVetorFacilEsportes[8] = {0};
+            pontuacaoVetorMedioEsportes[10] = {0};
+            pontuacaoVetorDificilEsportes[12] = {0};
+            pontuacao = 0;
+        	
 			system("cls");	
-			printf("CA�A-PALAVRAS");
+			printf("CAÃ‡A-PALAVRAS");
 			printf("\n===================================\n");          //MENU do programa
 
-			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
+			printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÃDERES\n4. SAIR\n\n");
 			printf("---> ");
 			scanf("%d", &codigo);
 			
@@ -281,9 +292,9 @@
 			
 			while(codigo < 1 || codigo > 4){                        //caso n seja digitado um numero valido entre as opcoes do MENU
 				
-				printf("CA�A-PALAVRAS");
+				printf("CAÃ‡A-PALAVRAS");
 				printf("\n===================================\n");
-				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE L�DERES\n4. SAIR\n\n");
+				printf("1. JOGAR\n2. COMO JOGAR\n3. QUADRO DE LÃDERES\n4. SAIR\n\n");
 				printf("---> ");
 				scanf("%d", &codigo);	
 				
@@ -306,7 +317,7 @@
 					                             		    
 					printf("JOGAR - ESCOLHA UM TEMA");											//tela para selecionar o tema de jogo q vai ser jogado
 					printf("\n===================================\n");
-					printf("1. PROGRAMA��O\n2. ESPORTES\n3. VOLTAR\n\n");
+					printf("1. PROGRAMAÃ‡ÃƒO\n2. ESPORTES\n3. VOLTAR\n\n");
 					printf("---> ");
 					scanf("%d", &codigoTema);
 					
@@ -316,7 +327,7 @@
 						
 						printf("JOGAR - ESCOLHA UM TEMA");
 						printf("\n===================================\n");
-						printf("1. PROGRAMA��O\n2. ESPORTES\n3. VOLTAR\n\n");
+						printf("1. PROGRAMAÃ‡ÃƒO\n2. ESPORTES\n3. VOLTAR\n\n");
 						printf("---> ");
 						scanf("%d", &codigoTema);
 					
@@ -335,7 +346,16 @@
 								
 								matriz1(matrizFacilC, pontuacao);
 								printf("\n\nPalavras: \n");
-								for(i=0; i<8; i++){
+								if(pontuacaoVetorFacilC[0]==1){
+										printf("\033[0;32m");
+										printf("array ");
+										printf("\033[0m");
+									}else{
+										printf("\033[0;31m");
+										printf("array ");
+										printf("\033[0m");
+									}
+								for(i=1; i<8; i++){
 									if(i==4) printf("\n");
 									if(pontuacaoVetorFacilC[i]==1){
 										printf("\033[0;32m");
@@ -363,7 +383,7 @@
 								scanf("%d", &y2);
 								
 								if((x1==7 && y1==0) && (x2==7 && y2==4)){
-									pontuacaoVetorFacilC[0]=1;				//array
+									pontuacaoVetorFacilC[0]=8;				//array
 								}
 								if((x1==0 && y1==0) && (x2==0 && y2==3)){
 									pontuacaoVetorFacilC[1]=1;				//char
@@ -402,15 +422,15 @@
 						
 						do{
 							system("cls");
-							printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+							printf("VOCÃŠ ENCONTROU TODAS AS PALAVRAS!");
 							printf("\n===================================\n");
-							printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+							printf("PRÃ“XIMO NÃVEL?\n1. SIM\n2. NÃƒO\n\n");
 							printf("---> ");
 							scanf("%d", &codigoContinuar);
 					
 							if(codigoContinuar < 1 || codigoContinuar > 2){
 								
-								printf("\nDigite um comando v�lido.");
+								printf("\nDigite um comando vÃ¡lido.");
 								Sleep(2000);
 								
 							}
@@ -453,7 +473,7 @@
 								scanf("%d", &y2);
 								
 								if((x1==4 && y1==1) && (x2==4 && y2==4)){
-									pontuacaoVetorMedioC[0]=1;				//case
+									pontuacaoVetorMedioC[0]=10;				//case
 								}
 								if((x1==3 && y1==3) && (x2==8 && y2==8)){
 									pontuacaoVetorMedioC[1]=1;				//define
@@ -498,15 +518,15 @@
 						
 						do{
 							system("cls");
-							printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+							printf("VOCÃŠ ENCONTROU TODAS AS PALAVRAS!");
 							printf("\n===================================\n");
-							printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+							printf("PRÃ“XIMO NÃVEL?\n1. SIM\n2. NÃƒO\n\n");
 							printf("---> ");
 							scanf("%d", &codigoContinuar);
 					
 							if(codigoContinuar < 1 || codigoContinuar > 2){
 								
-								printf("\nDigite um comando v�lido.");
+								printf("\nDigite um comando vÃ¡lido.");
 								Sleep(2000);
 								
 							}
@@ -602,9 +622,9 @@
 							
 									system("cls");
 									
-									printf("VOC� FINALIZOU TODOS OS N�VEIS!");
+									printf("VOCÃŠ FINALIZOU TODOS OS NÃVEIS!");
 									printf("\n===================================\n\n");
-									printf("PONTUA��O: %dpts\n\n", pontuacao);
+									printf("PONTUAÃ‡ÃƒO: %dpts\n\n", pontuacao);
 									
 									Leaderboard(nome, pontuacao);
 									pontuacaoVetorFacilC[8] = {0};
@@ -688,10 +708,10 @@
 									pontuacaoVetorFacilEsportes[3]=1;				//quadra
 								}
 								if((x1==2 && y1==7) && (x2==5 && y2==7)){
-									pontuacaoVetorFacilEsportes[4]=1;				//ta�a
+									pontuacaoVetorFacilEsportes[4]=1;				//taÃ§a
 								}
 								if((x1==2 && y1==3) && (x2==6 && y2==3)){
-									pontuacaoVetorFacilEsportes[5]=1;				//t�nis
+									pontuacaoVetorFacilEsportes[5]=1;				//tÃªnis
 								}
 								if((x1==3 && y1==0) && (x2==3 && y2==3)){
 									pontuacaoVetorFacilEsportes[6]=1;				//time
@@ -716,15 +736,15 @@
                             do{
                             	
 								system("cls");
-								printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+								printf("VOCÃŠ ENCONTROU TODAS AS PALAVRAS!");
 								printf("\n===================================\n");
-								printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+								printf("PRÃ“XIMO NÃVEL?\n1. SIM\n2. NÃƒO\n\n");
 								printf("---> ");
 								scanf("%d", &codigoContinuar);
 					
 								if(codigoContinuar < 1 || codigoContinuar > 2){
 								
-									printf("\nDigite um comando v�lido.");
+									printf("\nDigite um comando vÃ¡lido.");
 									Sleep(2000);
 								
 								}
@@ -773,7 +793,7 @@
 									pontuacaoVetorMedioEsportes[1]=1;				//cliclismo
 								}
 								if((x1==0 && y1==0) && (x2==9 && y2==9)){
-									pontuacaoVetorMedioEsportes[2]=1;				//competi��o
+									pontuacaoVetorMedioEsportes[2]=1;				//competiÃ§Ã£o
 								}
 								if((x1==0 && y1==2) && (x2==6 && y2==8)){
 									pontuacaoVetorMedioEsportes[3]=1;				//corrida
@@ -785,7 +805,7 @@
 									pontuacaoVetorMedioEsportes[5]=1;				//maratona
 								}
 								if((x1==8 && y1==3) && (x2==8 && y2==9)){
-									pontuacaoVetorMedioEsportes[6]=1;				//nata��o
+									pontuacaoVetorMedioEsportes[6]=1;				//nataÃ§Ã£o
 								}
 								if((x1==3 && y1==3) && (x2==3 && y2==9)){
 									pontuacaoVetorMedioEsportes[7]=1;				//partida
@@ -813,15 +833,15 @@
                                 do{
                             	
 									system("cls");
-									printf("VOC� ENCONTROU TODAS AS PALAVRAS!");
+									printf("VOCÃŠ ENCONTROU TODAS AS PALAVRAS!");
 									printf("\n===================================\n");
-									printf("PR�XIMO N�VEL?\n1. SIM\n2. N�O\n\n");
+									printf("PRÃ“XIMO NÃVEL?\n1. SIM\n2. NÃƒO\n\n");
 									printf("---> ");
 									scanf("%d", &codigoContinuar);
 					
 									if(codigoContinuar < 1 || codigoContinuar > 2){
 								
-										printf("\nDigite um comando v�lido.");
+										printf("\nDigite um comando vÃ¡lido.");
 										Sleep(2000);
 								
 									}
@@ -881,10 +901,10 @@
 										pontuacaoVetorDificilEsportes[5]=1;				//medalha
 									}
 									if((x1==1 && y1==2) && (x2==10 && y2==11)){
-										pontuacaoVetorDificilEsportes[6]=1;				//ol�mpiadas
+										pontuacaoVetorDificilEsportes[6]=1;				//olÃ­mpiadas
 									}
 									if((x1==0 && y1==10) && (x2==0 && y2==2)){
-										pontuacaoVetorDificilEsportes[7]=1;				//patina��o
+										pontuacaoVetorDificilEsportes[7]=1;				//patinaÃ§Ã£o
 									}
 									if((x1==8 && y1==1) && (x2==4 && y2==1)){
 										pontuacaoVetorDificilEsportes[8]=1;				//skate
@@ -913,9 +933,9 @@
 
                                     system("cls");
 
-                                    printf("VOC� FINALIZOU TODOS OS N�VEIS!");
+                                    printf("VOCÃŠ FINALIZOU TODOS OS NÃVEIS!");
                                     printf("\n===================================\n\n");
-                                    printf("PONTUA��O: %dpts\n\n", pontuacao);
+                                    printf("PONTUAÃ‡ÃƒO: %dpts\n\n", pontuacao);
                                     
                                     Leaderboard(nome, pontuacao);
                                     pontuacaoVetorFacilEsportes[8] = {0};
@@ -962,10 +982,10 @@
 				case 2:                          //tela de instrucoes do jogo
 					printf("COMO JOGAR");
 					printf("\n===================================\n");
-					printf("O jogo � constitu�do por dois temas de palavras, cada tema com tr�s n�veis diferentes."); 
-					printf("\nO jogador dever� inserir as coordenadas da primeira letra e as coordenada da ultima letra da palavra encontrada, sendo X o valor horizontal e Y o valor vertical.");
-					printf("\nO n�vel estar� completo quando todas as palavras listadas forem encontradas. Ap�s todas as palavras serem encontradas, ser� dada a op��o de prosseguir para o pr�ximo n�vel ao jogador.");
-					printf("\nCaso o jogador queira terminar o jogo cedo, dever� digitar o n�mero 404 em qualquer uma das entradas de coordenada para sair. Mantendo assim a pontua��o obtida at� o momento.");                //sem instrucoes ainda
+					printf("O jogo Ã© constituÃ­do por dois temas de palavras, cada tema com trÃªs nÃ­veis diferentes."); 
+					printf("\nO jogador deverÃ¡ inserir as coordenadas da primeira letra e as coordenada da ultima letra da palavra encontrada, sendo X o valor horizontal e Y o valor vertical.");
+					printf("\nO nÃ­vel estarÃ¡ completo quando todas as palavras listadas forem encontradas. ApÃ³s todas as palavras serem encontradas, serÃ¡ dada a opÃ§Ã£o de prosseguir para o prÃ³ximo nÃ­vel ao jogador.");
+					printf("\nCaso o jogador queira terminar o jogo cedo, deverÃ¡ digitar o nÃºmero 404 em qualquer uma das entradas de coordenada para sair. Mantendo assim a pontuaÃ§Ã£o obtida atÃ© o momento.");                //sem instrucoes ainda
 					printf("\n\n");
 					
 					system("pause");    //comando para o "Pressione qualquer tecla..."
@@ -974,7 +994,7 @@
 					
 				case 3:
 					
-					printf("QUADRO DE L�DERES");
+					printf("QUADRO DE LÃDERES");
 					printf("\n===================================\n");
 					
 					for(int l = 0; l < numeroVetor; l++){
@@ -1017,9 +1037,9 @@
 			}
 			if(x1==404 || y1==404 || x2==404 || y2==404){
 				system("cls");
-				printf("VOC� DESISTIU DO JOGO!");
+				printf("VOCÃŠ DESISTIU DO JOGO!");
 				printf("\n===================================\n\n");
-                printf("PONTUA��O: %dpts\n\n", pontuacao);
+                printf("PONTUAÃ‡ÃƒO: %dpts\n\n", pontuacao);
                     
                 Leaderboard(nome, pontuacao);
                 pontuacaoVetorFacilEsportes[8] = {0};
