@@ -693,7 +693,7 @@ int main(){
 										pontuacaoVetorMedioEsportes[0]=1;				//atletismo
 									}
 									if((x1==0 && y1==0) && (x2==7 && y2==0)){
-									pontuacaoVetorMedioEsportes[1]=1;				//cliclismo
+									pontuacaoVetorMedioEsportes[1]=1;					//cliclismo
 									}
 									if((x1==0 && y1==0) && (x2==9 && y2==9)){
 										pontuacaoVetorMedioEsportes[2]=1;				//competição
@@ -934,16 +934,21 @@ int main(){
 						system("cls");
 						printf("VOCÊ DESISTIU DO JOGO!");
 						printf("\n===================================\n\n");
-               					printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
+               			printf("PONTUAÇÃO: %dpts\n\n", pontuacao);
                     
-                				Leaderboard(nome, pontuacao);
-                				pontuacaoVetorFacilEsportes[8] = {0};
-                				pontuacaoVetorMedioEsportes[10] = {0};
-               					pontuacaoVetorDificilEsportes[12] = {0};
-                				pontuacao = 0;
+                		Leaderboard(nome, pontuacao);
+                		pontuacaoVetorFacilEsportes[8] = {0};
+                		pontuacaoVetorMedioEsportes[10] = {0};
+               			pontuacaoVetorDificilEsportes[12] = {0};
+                		pontuacao = 0;
+                		
+                		x1=0;
+                		y1=0;
+                		x2=0;
+                		y2=0;
 
-                				system("pause");
-                				system("cls");
+                		system("pause");
+                		system("cls");
 					}
 			
 		}while(1);
