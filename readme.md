@@ -7,7 +7,7 @@
 May/2024
 
 - This is a college project whose task is to create a word-search using C.
-- In this game of word-search the player must find the words in the list and inform the coordinates of the first and last letter to gain points. The player can choose from two different themes, each theme has 3 levels o difficulties: easy, medium and hard. The score list will show the top 10 players.
+- In this game of word-search the player must find the words in the list and inform the coordinates of the first and last letter to gain points. The player can choose from two different themes, each theme has 3 levels of difficulties: easy, medium and hard. The score list will show the top 10 players.
   
 ### Guidelines:
 - The game should have at least 2 themes.
