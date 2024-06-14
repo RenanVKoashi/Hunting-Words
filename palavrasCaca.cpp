@@ -43,19 +43,16 @@ void resetarValores(int vetorFacil[8], int vetorMedio[10], int vetorDificil[12])
 	for(int i = 0; i < 8; i++){
 
 		vetorFacil[i] = 0;		
-
 	}              
 
 	for(int j = 0; j < 10; j++){
 
 		vetorMedio[j] = 0;
-
 	}
 
 	for(int s = 0; s < 12; s++){
 
 		vetorDificil[s] = 0;
-
 	}
 
 }
@@ -260,6 +257,7 @@ int main(){
 			printf("---> ");
 			scanf("%d", &codigo);	
 				
+			menuCarregamento(i);
 			system("cls");	
 			}
 			
@@ -282,6 +280,7 @@ int main(){
 				printf("---> ");
 				scanf("%d", &codigoTema);
 					
+				menuCarregamento(i);
 				system("cls");
 					
 				while(codigoTema < 1 || codigoTema > 3){             //caso n seja digitado um numero valido entre as opcoes
@@ -292,6 +291,7 @@ int main(){
 					printf("---> ");
 					scanf("%d", &codigoTema);
 					
+					menuCarregamento(i);
 					system("cls");
 						
 				}
@@ -376,6 +376,8 @@ int main(){
 								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 								printf("---> ");
 								scanf("%d", &codigoContinuar);
+								
+								menuCarregamento(i);
 					
 								if(codigoContinuar < 1 || codigoContinuar > 2){
 									printf("\nDigite um comando válido.");
@@ -467,6 +469,8 @@ int main(){
 									printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 									printf("---> ");
 									scanf("%d", &codigoContinuar);
+									
+									menuCarregamento(i);
 					
 									if(codigoContinuar < 1 || codigoContinuar > 2){
 										printf("\nDigite um comando válido.");
@@ -569,6 +573,7 @@ int main(){
 									pontuacao = 0;
 									
 									system("pause");
+									menuCarregamento(i);
 									system("cls");
 									
 								}else{
@@ -669,6 +674,8 @@ int main(){
 								printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 								printf("---> ");
 								scanf("%d", &codigoContinuar);
+								
+								menuCarregamento(i);
 					
 								if(codigoContinuar < 1 || codigoContinuar > 2){
 									printf("\nDigite um comando válido.");
@@ -759,6 +766,8 @@ int main(){
 									printf("PRÓXIMO NÍVEL?\n1. SIM\n2. NÃO\n\n");
 									printf("---> ");
 									scanf("%d", &codigoContinuar);
+									
+									menuCarregamento(i);
 					
 									if(codigoContinuar < 1 || codigoContinuar > 2){
 										printf("\nDigite um comando válido.");
@@ -859,7 +868,8 @@ int main(){
                                     						pontuacao = 0;
 
                                     						system("pause");
-                                   						system("cls");
+                                    						menuCarregamento(i);
+                                   							system("cls");
 
                                					}else{
                                 	
